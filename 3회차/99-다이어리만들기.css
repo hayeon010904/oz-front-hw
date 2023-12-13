@@ -1,0 +1,116 @@
+@font-face {
+    font-family: 'My_wife_writing';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_08@1.0/My_wife_writing.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}    
+
+
+.container{
+    width: 400px;
+    height: 600px;
+    border: 2px solid black;
+}
+
+.diary-top{
+    width: 400px;
+    height: 400px;
+    margin: 0;
+    padding: 0;
+    /* border: 2px solid black; */
+    
+
+}
+
+.top{
+    width: 400px;
+    height: 400px;
+    border: 2px solid black;
+    /* box-sizing: border-box; */
+
+}
+
+.datesun{
+    table-layout: fixed;
+    text-align: center;
+    font-family: 'GmarketSansMedium';
+    background-color: rgb(255, 254, 243);
+ 
+}
+
+span{font-family: 'My_wife_writing';
+    font-size: 24px;
+
+}
+
+.sun, .detail-date{
+    padding-left: auto;
+    padding-right: auto;
+}
+
+
+.titlee{
+    font-size: 20px;
+    table-layout: fixed;
+    height: 330px;
+  
+    
+   
+   
+}
+p{
+    margin-top: 15px;
+    margin-bottom: 0px;
+    margin-left: 60px;
+    margin-right: 10px;
+    display: inline-block;
+    font-family: 'GmarketSansMedium';
+    
+}
+
+.under {width: 200px;
+        border-bottom: 3px double black;
+        margin: 0% auto 15px auto;
+                margin-top: 0%;
+                display: inline-block;
+                font-size: 27px;
+                font-family: 'My_wife_writing';
+        }
+
+
+img{width: 370px;
+    height: 270px;
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+
+    
+   
+
+    
+
+}
+
+.diary-content{
+    background-color: rgb(255, 254, 243);
+    width: 400px;
+    height: 200px;  
+    table-layout: fixed;
+    font-family: 'My_wife_writing';
+    text-align: center;
+    font-weight: 900;
+    font-size: 26px;   
+   
+
+}
+
+
+
+
