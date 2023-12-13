@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>박스를 간단하게 채우기</title>
+    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gamja+Flower&family=IBM+Plex+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
+   
+<style>      
+div {        
+    box-sizing: border-box;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;            
+    background: rgb(235,139,181);
+    background: radial-gradient(circle, 
+            rgba(235,139,181,1) 10%,
+            rgba(148,187,233,1) 100%);   
+    }
+
+box{   
+    font-family: 'Black Han Sans', sans-serif;
+    border-radius: 40%;
+    height: 50px;
+    width: 150px;
+    box-sizing: border-box; 
+    font-size: 35px;
+    color: rgba(99, 93, 100, 0.828);
+    background-color: rgba(238, 255, 0, 0.478);
+    background-clip: content-box;
+    text-align: center; 
+    line-height:50px;
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <box>
+            색종이
+        </box>
+    </div>  
+</body>
+</html>

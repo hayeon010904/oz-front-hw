@@ -1,0 +1,122 @@
+* {
+    font-family: 'Gamja Flower', 'IBM Plex Sans KR', sans-serif;
+    font-weight: 300;
+}
+ 
+h1{    
+    border: 1.5px groove rgba(255, 178, 163, 0.462);
+    box-shadow: 
+        2px 2px 1px rgba(255, 214, 195, 0.87);     
+    width: 400px;
+    height: 50px;
+    border-radius: 10px; 
+    font-size: 41px;  
+    color: rgb(68, 68, 68);
+   
+    text-align: center;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    background-clip: padding-box;
+    background-color: rgba(253, 253, 109, 0.303);    
+    }
+
+body{        
+    margin: 0;
+}
+
+.container{
+    width: 450px;
+    height: 590px;    
+    padding: 2px 20px 30px;   
+    margin: auto;
+    margin-top: 90px;
+    border-radius: 20px;
+    box-shadow: 
+        -1px -1px 2px 3px blanchedalmond,
+        10px 10px 10px 5px blanchedalmond,
+        10px 15px 3px 5px pink;           
+    background-color: #fffcec;
+    background-clip: padding-box;          
+}
+
+main{
+    text-align: left;
+}
+
+#basic{
+    width: 400px;
+    height: 250px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 28px;  
+      
+    background-clip: padding-box;
+    background-color: rgb(255, 243, 243);
+     border: 0.5px dashed rgb(0, 0, 0);   
+}
+
+
+#login{
+    width: 400px;
+    height: 170px;
+    border-radius: 20px;
+    padding-top: 0px;
+    padding-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    line-height: 25px;   
+    background-clip: padding-box;
+    background-color: rgb(255, 243, 243);
+     border: 0.5px dashed rgb(0, 0, 0);   
+}
+
+footer{
+    margin-top: 10px;
+    text-align: center;
+}
+
+#submit{
+    /*border: 5px double rgba(253, 185, 166, 0.876);
+    padding: 5px 15px;
+    font-size: 22px;
+    border-radius: 50px;  
+    background-color: rgba(255, 178, 163, 0.462); */
+ 
+    border: 3px dotted rgba(253, 185, 166, 0.876);
+    padding: 4px 10px;
+    font-size: 22px;
+    border-radius: 50px;     
+    background-color: rgba(255, 247, 233, 0.856);
+    color: rgb(51, 50, 50);   
+}
+
+legend{
+    font-size: 30x;   
+}
+
+.gender{
+    font-size: 14px;
+}
+
+#name{
+    width: 70px;
+}
+.phone{
+width: 50px;    
+}
+
+.phone1{
+width: 60px;
+}
+
+#certify{
+width: 50px;
+}
+
+#detailadress{
+width: 80px;
+}
