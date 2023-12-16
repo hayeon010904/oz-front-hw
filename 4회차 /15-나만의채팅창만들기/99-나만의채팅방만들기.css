@@ -1,0 +1,111 @@
+/* 전체적인 세팅부터 */
+@font-face {
+    font-family: 'KCCChassam';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCCChassam.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    box-sizing: border-box;
+    font-family: 'KCCChassam';
+}
+html{
+    height: 100%; /*% 자기가 속한 영역을 기준으로 높이. 
+    html이 속한 영역은 웹브라우저 화면 => 100%라는 것은 화면을 꽉 채워서 쓰겠다*/
+}
+body{
+    height: 100%;
+    margin: 0px;
+}
+.container{
+    height: 100%;
+    background-image: url(images/배경.jpeg);
+    background-size: 490px; 
+  
+
+}
+
+/* 스크린<main> 크기조정 */
+.chat-screen{
+    height:calc(100% - 90px);
+}
+
+/*유저 정보 표시되는 부분*/
+.user{
+    background-color: rgb(130, 66, 64);
+    padding: 16px;
+    height: 80px;
+
+}
+.user_column{
+    float:left;
+
+}
+.user_pic{
+    width: 50px;
+    height: 50px;
+    margin-right: 12px;
+    border-radius: 20px;
+    background-image: url(images/흰둥이.png);
+    background-size: 50px;
+    border: 1px double white;
+}
+.user_nick{
+    font-size: 20px;
+    color: rgb(46, 0, 0);
+     
+}
+.user_nick, .user_count{
+    margin:3px;
+}
+
+.user_count{
+    font-size: 17px;
+    color: gray;
+    margin-left:8px;
+}
+
+/* 채팅입력창 */
+.chat-form{
+    height: 90px;
+    background-color: white;
+}
+.chat-form_field{
+    height: 90px;
+}
+
+.chat-form_msg{
+    float: left;
+    width: calc(100% - 120px);
+    height: 90px;
+    border: none;
+    resize: none;
+    font-size: 24px;
+    padding: 10px;
+}
+
+.chat-form_bt{
+    float: right;    
+    width: 80px;
+    height: 90px;
+    border: 0px;
+    border-radius: 7px;
+    background-color: rgb(249, 178, 0);
+    font-size: 27px;
+    color: rgb(242, 242, 242);
+    
+}
+
+.chat-form_msg:focus{
+    outline:none;
+}
+
+.chat-form_bt:active{
+    background-color:#005f00;
+    color: white;
+
+    
+    /*rgb(176, 118, 116);*/
+}
+
