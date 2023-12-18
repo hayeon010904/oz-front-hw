@@ -260,8 +260,7 @@ section > div>p:nth-child(3){
     .bar>ul>li:hover{
         background-color: antiquewhite;
         color:rgb(138, 0, 0);
-    }
- 
+    } 
        
 
 }
