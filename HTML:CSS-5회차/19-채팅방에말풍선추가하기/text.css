@@ -1,0 +1,59 @@
+.chat-screen{
+    overflow: scroll;
+}
+
+.chat-screen_texts{
+    padding:0;
+    list-style-type: none;
+    position: relative;    
+}
+
+.chat-screen_texts >.text{
+    background-color: rgb(102, 150, 102);
+    width: 150px;
+    height: 50px;
+    margin: 0 0 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    line-height: 30px;
+    position: relative; 
+    left: 20px;
+} 
+
+ .chat-screen_texts >.me{ 
+position: relative; 
+margin-right: 40px;
+margin-left: auto;
+ }
+
+ .chat-screen_texts >.me::after{
+    transform: rotate(180deg);
+    content: "";
+    border-left: 16px solid transparent ;
+    border-top: 16px solid rgb(102, 150, 102) ;
+    position: absolute;
+    top:20px;
+    right:-10px;    
+}
+    
+.chat-screen_texts >.bf::after{
+    content: "";
+    border-right: 16px solid rgb(102, 150, 102);
+    border-bottom: 16px solid transparent;
+    position: absolute;
+    top: 10px;
+    left:-10px;       
+}
+
+
+
+.chat-screen_texts >.text:hover{
+    background-color: rgb(66, 97, 66);
+    transition: background-color 1500ms 200ms ease-in;
+}
+
+.chat-screen_texts >.text:hover::after{
+    border-right: 16px solid rgb(66, 97, 66);
+    transition: border-right 1500ms 200ms ease-in;
+}
+

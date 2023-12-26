@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자 정보 입력받기</title>
+
+    <style>
+        .hobby{
+            color:blue;
+        }
+        .fruit{
+            color:red;
+        }
+        .animal{
+            color:brown;
+        }     
+    </style>
+</head>
+<body>
+    <h1 class="name"></h1>
+    <p class=hobby"></p>
+    <p class="song"></p>
+    <hr>
+    <p class="animal"></p>
+    <p class="fruit"></p>
+
+    <script>
+        document.querySelector("h1")
+        .textContent = `제 이름은 ${prompt("당신의 이름은?")} 입니다`
+        document.querySelector("p")
+        .textContent=`저의 취미는 ${prompt('당신의 취미는?')}입니다.`
+        document.querySelector(".song")
+        .textContent=`제가 좋아하는 노래는 ${prompt('당신의 좋아하는 노래는?')}입니다.`
+
+       const animalElement = document.querySelector(".animal")
+       let animal = prompt('당신이 좋아하는 동물은?')
+       animalElement.textContent = animal
+
+       document.querySelector(".fruit")
+       .textContent = `제가 좋아하는 과일은 ${prompt('당신이 좋아하는 과일은?')}입니다.`
+    </script>
+</body>
+</html>
+

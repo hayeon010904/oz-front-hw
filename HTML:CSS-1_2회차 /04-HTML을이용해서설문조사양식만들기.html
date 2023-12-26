@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>설문조사 양식</title>
+</head>
+<body>
+    <header>
+        <h1>OTT서비스 설문조사</h1>
+        <p>모든 항목에 빠짐없이 응답해주시기 바랍니다.</p>
+    </header>
+    <main>
+        <form>
+            <fieldset>
+                <legend><strong>개인정보</strong></legend>
+                <label> &nbsp;&nbsp; 이름 
+                <input type="text" id="name" name="name" 
+                placeholder="이름을 입력해주세요." ></label>
+                <br>  <br> 
+            
+                <label> 이메일
+                <input type="email" id= "email" name="email" 
+                placeholder="이메일을 입력해주세요."></label>
+                
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><strong>설문</strong></legend>
+                <p>1. 연령대가 어떻게 되십니까?</p>
+                    <input type="radio" name="age" id="10대">
+                    <label for="10대">20대 미만 </label>
+                    <input type="radio" name="age" id="20대">
+                    <label for="20대">20대 </label>
+                    <input type="radio" name="age" id="30대">
+                    <label for="30대">30대 </label>
+                    <input type="radio" name="age" id="40대">
+                    <label for="40대">40대 </label>
+                    <input type="radio" name="age" id="50대">
+                    <label for="50대">50대 이상 </label>
+
+                <p>2. 어떤 OTT 서비스를 사용하시나요? 모두 골라주세요 </p>
+                    <input type="checkbox" id="net" name="what">
+                    <label for="net">넷플릭스</label>
+                    <input type="checkbox" id="tvi" name="what">
+                    <label for="tiv">티빙</label>
+                    <input type="checkbox" id="dsy" name="what">
+                    <label for="dsy">디즈니플러스</label>
+                    <input type="checkbox" id="wav" name="what">
+                    <label for="wav">웨이브</label> 
+                    <input type="checkbox" id="other" name="what">
+                    <label for="other">그 외</label>
+                    <input type="text">
+
+
+                <p>3. 어느 OTT 서비스를 가장 선호하시나요? 한가지만 선택 해 주세요</p>
+                    <input type="radio" id="net" name="what">
+                    <label for="net">넷플릭스</label>
+                    <input type="radio" id="tvi" name="what">
+                    <label for="tiv">티빙</label>
+                    <input type="radio" id="dsy" name="what">
+                    <label for="dsy">디즈니플러스</label>
+                    <input type="radio" id="wav" name="what">
+                    <label for="wav">웨이브</label> 
+                    <input type="radio" id="other" name="what">
+                    <label for="other">그 외</label>
+                    <input type="text">
+
+                <p>4. 3.에서 응답하신 이유에 대해 말씀해주세요.</p>
+                  <textarea rows="3" cols="40"></textarea>
+                    <br>                  
+            </fieldset>           
+        </form>
+    </main>
+    <footer>
+        <p> 설문에 응답해주셔서 감사합니다. 제출 버튼을 눌러 응답을 제출해주세요.</p> 
+        <input type="submit">
+    </footer>
+</body>
+</html>

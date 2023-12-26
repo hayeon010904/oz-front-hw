@@ -1,0 +1,266 @@
+@font-face {
+    font-family: 'SejonghospitalBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/SejonghospitalBold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'KCCChassam';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCCChassam.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    font-family: 'SejonghospitalBold';
+}
+
+html{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    width: 100%;    
+   height: 400px;
+    margin: 0;
+    padding: 0;  
+    
+   
+}
+.banner{
+    width: 100%;
+    height: 400px;
+    background-image: url(img/배경1.jpeg);
+    background-size: 100% 400px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes blink {
+    from {top: 0px;}
+    to {top: -20px;}
+   
+}
+.banner > p{
+    margin: 0; 
+    text-align: center;
+    transform: translate(-30px,-100px); 
+    font-size: 24px;
+    font-family: 'KCCChassam';
+    background-color: rgb(245, 231, 212);
+    width: 150px;
+    border-radius: 100px;
+    padding: 5px;
+    position: relative;    
+    animation: blink 0.5s 0s linear infinite alternate;  
+}
+
+
+.banner >p::after{
+    transform: rotate(180deg);       
+    content: "";
+    border-left: 19px solid transparent ;
+    border-top: 19px solid rgb(245, 231, 212) ;
+    position: absolute;
+    bottom:23px;
+    right:-11px;      
+}
+
+main{
+    width: 100%;
+    height: 800px;
+    position: relative;        
+}
+
+.bar{
+    width: 100%;    
+    height: 55px;
+    background-color: rgb(101, 101, 101);
+    color: rgb(252, 252, 252);    
+    position: sticky;
+    top:0px;      
+    z-index: 2;
+    display: flex;
+    flex-direction: row; 
+  justify-content: space-between;  
+     /* position: relative;    */
+   
+}
+.bar > p{    
+    margin: 0;
+     /* position: absolute;
+    left:20px;       */
+    line-height: 55px;
+    font-size: 25px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: row;
+    margin-left:15px;
+    color: black;
+    
+
+}
+.bar> ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row; 
+    /* position: absolute; 
+    right: 10px;       */
+    padding-left: 0px;
+    margin-right: 10px;
+    align-items: center;
+    line-height: 55px;       
+}
+
+.bar> #ham{  
+    position: absolute;
+    right: 16px;
+    display: none;
+    font-size: 30px;
+}
+
+.bar>ul>li{
+    display: inline-block; 
+    flex-direction: row;
+    position: relative;    
+    padding-left: 10px;  
+    padding-right: 10px;    
+}
+
+
+.bar>ul>li:hover{
+   transition-property: background-color;
+   transition-duration:0.3s;
+   transition-timing-function: ease-in;
+   transition: back;
+   background-color: antiquewhite;
+   color:gray; 
+}
+
+#about{
+    text-align: center;
+    margin: 70px auto 0 auto;
+    color: purple
+      
+}
+#h1{
+    text-align: center;
+    margin: 50px auto 100px auto;
+   
+}
+section{
+    width: 100%;    
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    position: relative;
+
+  
+}
+
+    section > div{
+    display: inline-block;
+    width: 420px;
+    height: 550px;
+    background-color: rgba(214, 55, 214, 0.686);
+    background-clip: content-box;
+    border-radius: 40px;   
+    margin-bottom: 40px;
+
+    /* filter: blur(3px); */
+    /* -webkit-backdrop-filter: blur(50px); */
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; 
+  
+}
+section > div:hover{
+    /* backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); */
+    transition: background-color 0.8s;
+    background-color: rgb(182, 34, 182);
+}
+
+
+section > div:hover{
+    transition: background-color 0.8s;
+    background-color: rgb(182, 34, 182);
+ 
+}
+
+
+
+
+
+section > div>a{
+   display: block;  
+   text-decoration: none;
+ 
+}
+
+section > div>p, a{
+    text-align: center;    
+    margin-top: 0;
+    
+    
+}
+section > div>p:nth-child(1){
+    height: 350px;
+    font-size: 300px;
+    padding: 0;
+    margin: 0px auto 20px auto;  
+}
+section > div>p:nth-child(2), a{
+    font-size: 40px;   
+    font-weight: 600;   
+    margin-bottom:20px; 
+    color: rgb(243, 227, 198);
+}
+section > div>p:nth-child(3){
+    line-height: 45px; 
+    font-size: 24px;
+    font-weight: 100;
+    margin-top:0; 
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width:768px) {
+ 
+    .bar{
+        display: flex;
+        flex-direction: column;}       
+    
+    .bar> #ham{       
+        display:block
+    }
+
+    .bar>ul{
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: rgb(239, 239, 239);
+        padding-left: 0;
+        margin: 0;
+       overflow: hidden; 
+    }
+
+    .bar>ul>li{ 
+       width: 100%;
+        color: black;}
+         
+    .bar:hover ul{
+        overflow: visible;
+    }    
+    .bar>ul>li:hover{
+        background-color: antiquewhite;
+        color:rgb(138, 0, 0);
+    } 
+       
+
+}

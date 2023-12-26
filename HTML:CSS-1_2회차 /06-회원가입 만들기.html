@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>회원가입</title>
+</head>
+<body>
+    <header>
+        <h1>회원가입</h1>
+    </header>
+
+    <main>
+       <form>
+        <fieldset>
+            <legend>개인정보</legend>
+        <ul>
+            <li>
+                <label for="name">이름: </label>
+                <input type="text" id="name" name="name"
+                placeholder="ex, 홍길동">
+            </li>
+        <br> 
+            <li>
+            <div>
+                성별:
+                <input type="radio" id="girl" name="sex">
+                <label for="girl">여성</label>
+            
+                <input type="radio" id="boy" name="sex" >
+                <label for="boy">남성</label>
+            </div>
+            </li>
+        <br>    
+            <li>
+                <label for="phonenumber">휴대폰 번호</label>
+                <input for="tel" id="phonenumber"
+                placeholder="010-0000-0000" name="phonenumber">
+            </li>
+        <br>
+            <li>         
+                <label for="email">이메일: </label>
+                <input type="emil" id="email"
+                placeholder="E-mail" name="email">
+            </li>
+        <br>
+            <li>
+                <div>
+                    주소 </li> 
+                    <select>
+                        <option value="seoul">서울특별</option> 
+                        <option value="busan">부산광역</option> 
+                        <option value="incheon">인천광역</option> 
+                        <option value="daegu">대구광역</option> 
+                    </select>
+                     시/도
+                    <select>
+                        <option value="gangnam">강남</option>
+                        <option value="kangbuk">강북</option>
+                        <option value="gangdong">강동</option>
+                        <option value="gangseo">강서</option>
+                    </select>
+                    시/군/구
+                    <select>
+                        <option value="gaepo">개포</option>
+                        <option value="nonhyeon">논현</option>
+                        <option value="daechi">대치</option>
+                        <option value="dogok">도곡</option>
+                    </select>
+                    읍/면/동
+                <br>               
+                    <input type="text" id="detail adress" 
+                    placeholder="상세주소">          
+                </div>
+        </ul>
+        </fieldset>    
+                <br>
+        <fieldset>
+            <legend>가입정보</legend>
+            <ul>
+                <li>
+                    <label for="id">아이디: </label>
+                    <input type="text" id="id"
+                    placeholder="ID">
+                </li>   
+                <br> 
+                <li>
+                    <label for="pw">비밀번호: </label>
+                    <input type="password" id="pw"
+                    placeholder="PW">
+            
+                    <label for="pw1">비밀번호 확인: </label>
+                    <input type="password" id="pw1">
+                </li>
+            </ul>
+        </fieldset>    
+     </form> 
+    </main>
+    <footer>
+        <button>제출</button>  
+    </footer>  
+    </body>
+</html>
