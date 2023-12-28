@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>별 트리 찍기</title>
+</head>
+<body>
+    <h1>별 트리 찍기</h1>
+  
+  
+    
+    
+    <script>
+
+document.write("직사각형<br>")
+for(let i = 0; i < 5; i++)  {
+  for(let j = 0; j < 5; j++)  {
+    document.write('*');
+  }
+  document.write('<br>');
+}
+
+document.write("1번별<br>")
+// 이중 for 문 사용하는 방법
+for (let i = 0; i<5; i++){
+    for (let j=0; j<=i; j++){
+        document.write('*')
+    }
+    document.write("<br>")
+
+}
+// repeat 사용하는 방법
+for (let i = 1; i<=5; i++){
+    document.write('*'.repeat(i))
+    document.write("<br>")
+    
+    }
+    
+document.write("2번별<br>")
+// 이중 for 문 사용하는 방법
+for (let i = 0; i<5; i++){
+    for (let j=0; j<=i; j++){
+        document.write('*')
+    }
+    document.write("<br>")}
+
+for (let i = 0; i<5; i++){
+    for(let j=5; j>i; j--){
+    document.write('*')}
+    document.write("<br>")
+}
+///repeat사용
+for (let i=0; i<=5; i++){
+    document.write('*'.repeat(i))
+    document.write("<br>")
+}
+for(let i=5; i>=1; i--){
+    document.write('*'.repeat(i))
+    document.write("<br>")
+}
+
+for(let i=0; i<=5; i++){
+    for( let j=5; j<i; j--){
+        document.write('&nbsp')
+    } }
+for(let i=0; i<=5; i++){
+    for( let j=0; j<i; j++){
+        document.write('*')
+    }   document.write("<br>")
+
+    }
+
+for (let i = 0; i<5; i++){
+    for (let j=0; j<=i; j++){
+        document.write('*')
+    }
+    document.write("<br>")}
+
+for (let i = 0; i<5; i++){
+    for(let j=5; j>i; j--){
+    document.write('*')}
+    document.write("<br>")
+}
+
+
+
+//공백있는 별
+// document.write("<br>")
+
+// for (let i = 0; i<5; i++){
+//     for(let j=5; j>=i; j--){
+//         document.write('&nbsp')
+//     }
+//     for(let j=0; j<i; j++){
+//     document.write('*')
+//     }
+//     document.write("<br>")
+// }
+
+// document.write("<br>")
+
+// for (let i = 0; i<5; i++){
+
+//     for(let j=0; j<=i; j++){
+//         document.write('&nbsp')
+//     }
+
+//     for(let j=5; j>i; j--){
+//     document.write('*')
+//     }
+//     document.write("<br>")
+// }
+    
+
+
+
+
+
+
+        // let star = "*"
+        // for(let i = 0; i>=5; i++){
+        //     document.write("star")
+        // }
+
+    
+        // for(let i = '*' ; i <= '*****'; i+='*'){
+            
+
+        //     document.write(`${i} <br>`)
+         
+        // }
+        // document.write(`2번 별<br>`)
+        // for(let i = '*' ; i <= '*****'; i+='*'){
+        //     document.write(`${i} <br>`)}
+          
+     
+
+        
+
+            
+         
+        
+
+    </script>
+</body>
+</html>

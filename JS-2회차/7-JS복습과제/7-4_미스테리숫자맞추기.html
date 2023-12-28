@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미스테리 숫자 맞추기</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+    body{
+        background-color: rgb(67, 67, 67);
+    }
+    #container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+     h1{
+        text-align: center;
+        color: wheat;
+        font-size: 2.2rem;
+     }
+     h4{
+        text-align: center;
+        color:rgb(70, 229, 176);
+        font-size: 1.2rem;
+
+     }
+       
+     input{
+        text-align: center;
+        padding: 0.5rem;
+        width: 8rem;
+        height: 2.5rem;
+        font-size: 1rem;
+        font-weight: 900;    
+    }
+    #result{
+        text-align: center;
+        padding: 0.5rem;
+        width: 3rem;
+        height: 2.5rem;
+        font-size: 1rem;
+        font-weight: 900;    
+    }
+    #result:hover{
+        background-color: yellow;
+    }
+    #hint{
+        color: rgb(255, 112, 243);
+    }
+    #again{       
+        text-align: center;
+        padding: 0.5rem;      
+        height: 2.5rem;
+        font-size: 1rem;
+        font-weight: 900;    
+        margin: auto;
+        
+        display: none;
+    } 
+    </style>
+</head>
+
+<body>
+    <div id="container">
+    <h1> Mystery Number 맞추기</h1>
+    <h4>1부터 100사이의 숫자를 입력하세요!</h4>
+    <div id="div">
+    <input id="text"> <button id="result">뚜둥</button></div>
+    <p id="hint"></p>
+    <button id="again">다시하기</button> 
+    </div>
+   
+    
+
+    <script>
+        //버튼 눌렀을때, 안에 있는 밸류값이 math.floor(math.random*100)과 같으면
+        //alert 
+
+        // 안에 있는 값이 더 적으면 -> 힌트: 숫ㅅ자가 너무 작아요! 조금 더 올려보세요
+        // 안에 있는 값이 더 크면 -> 힌트: 숫자가 커요! 줄여볼까요?
+
+        const randomNumber = Math.floor(Math.random() *101)
+        console.log(randomNumber)
+    
+        const button = document.getElementById('result')
+        const input = document.getElementById('text')
+
+        button.addEventListener('click',function(e){
+            e.preventDefault()          
+            const value = (parseInt(input.value))
+            if(value === randomNumber){
+                alert('정답~!~!@!@')
+                const retry = document.querySelector("#again")
+                retry.style.display="block"
+                retry.style.backgroundColor="darkseagreen"        
+                retry.onclick=function(){
+                window.location.reload()              
+                }
+            }
+            else if(value>randomNumber){    
+                    const p =   document.querySelector("#hint")
+                    p.textContent = "HINT: 숫자가 커요! 줄여보세요"
+            }    
+            else if(value<randomNumber){            
+                    const p =  document.querySelector("#hint")
+                    p.textContent = "HINT: 숫자가 작아요! 더 올려보세요"           
+            } 
+            }
+            )
+    </script>
+
+</body>
+</body>
+</html>

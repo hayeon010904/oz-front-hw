@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>moster</title>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+        let monsterHP =100
+        const container = document.getElementById("container")
+        const h1 = document.createElement("h1")
+        h1.textContent = "몬스터 잡기 게임을 시작합니다!"
+        container.appendChild(h1)
+
+        let attackDamage = parseInt(prompt("1회 공격시 데미지는? (양의정수)"))
+        let attackCount = 0;
+        //앵의정수를 받지 않으면 게임을 종료하는 if문
+        if(attackDamage > 0){
+            while(monsterHP > 0){
+                monsterHP -= attackDamage // hp가 감소한다
+                attackCount += 1 // 횟수는 늘어난다.
+            
+                const p1 = document.createElement("p")
+                p1.textContent = `몬스터를 ${attackCount}회 공격했습니다!`
+                container.append(p1)
+
+                if(monsterHP < 0){
+                    monsterHP = 0
+                }
+
+                const p2= document.createElement("strong")
+                p2.textContent = `몬스터의 남은 HP는 ${monsterHP} 입니다!`
+                container.append(p2)
+                //만약 hp가 0보다 작아질 경우, hp에 0을 대입한다~!!
+
+            }
+                const h2 = document.createElement("h2")
+                h2.textContent = `몬스터 잡기 완료! 수고하셨습니다~`
+                h2.style.color="orange"
+                h2.title="게임을 다시 시작하고 싶으면 새로고침하세요"
+                container.append(h2)
+
+            // if(monsterHP===0){
+            //     document.write("몬스터 잡기 완료! 수고하셨습니다")
+            // }
+        
+            // console.log(attackCount)
+
+        }else{
+            alert("데미지를 잘못 입력하여 게임을 취소합니다.")
+        }
+
+    </script>
+</body>
+</html>

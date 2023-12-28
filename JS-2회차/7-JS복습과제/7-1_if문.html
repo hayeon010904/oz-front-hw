@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문-성젹표</title>
+</head>
+<body>
+    <p id="score"><p>
+
+
+    <script>
+
+        
+        let score = `${parseInt (prompt('중간고사 점수를 입력하세요'))}`
+        if(score>100){
+            score = parseInt (prompt('0-100 범위 내의 점수를 적어주세요'))
+        }else if(score<0){
+            score = parseInt (prompt('0-100 범위 내의 점수를 적어주세요'))
+        }         
+            
+        
+        if(score>=90){
+            const p = document.createElement("p")
+            p.textContent= `나의 기말고사 점수는 ${score}점, 학점은 A `
+            document.getElementById("score").append(p)
+
+        }else if(score>=80){
+            const p = document.createElement("p")
+            p.textContent= `나의 기말고사 점수는 ${score}점, 학점은 B `
+            document.getElementById("score").append(p)
+
+        }
+        else if(score>=70){
+            const p = document.createElement("p")
+            p.textContent= `나의 기말고사 점수는 ${score}점, 학점은 C `
+            document.getElementById("score").append(p)
+
+        }
+        else if(score>=60){
+            const p = document.createElement("p")
+            p.textContent= `나의 기말고사 점수는 ${score}점, 학점은 D `
+            document.getElementById("score").append(p)
+
+        }
+        else if(score<60){
+            const p = document.createElement("p")
+            p.textContent= `나의 기말고사 점수는 ${score}점, 학점은 F `
+            document.getElementById("score").append(p)
+
+        }
+    </script>
+</body>
+</html>
