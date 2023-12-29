@@ -19,11 +19,19 @@
  *- n이 5인 경우 결과 값 [2,4]
  */
 
- function question(n) {
-    // 여기에서 코드 작성해주세요!
-    let result;
 
-    return result;
+
+  
+ function question(n) {
+    let result=[]  
+   
+    for(let i = 0; i<=n; i++){
+        if(i % 2 === 0){
+         result.push(i)       
+        }
+    }
+     return result;
+
 }
 
 // 여기는 결과값 함수이므로 신경쓰지 않으셔도 됩니다!
