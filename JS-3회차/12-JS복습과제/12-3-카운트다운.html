@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카운트다운</title>
+</head>
+<body>
+    <h1></h1>
+    <strong></strong>
+    
+    <script>
+
+     
+    function newYeaer (){
+
+    const h1 = document.querySelector('h1')   
+    h1.textContent = new Date()
+
+
+    const future = new Date('2023/12/31/23:59:59')
+    const now = new Date()
+    const countdown = Math.abs(future - now)
+   
+    const days = Math.floor( countdown/(1000*3600*24) )
+    const hours = Math.floor( countdown/(1000*3600) %24)
+    const mins = Math.floor( countdown/(1000*60) %60)
+    const seconds = Math.floor( countdown/(1000) %60)
+
+    const strong = document.querySelector('strong')
+    strong.textContent = `올해의 남은 시간: ${days}일 ${hours}시간 ${mins}분 ${seconds}초 남았습니다.`
+
+    
+  
+    
+    }
+        
+    setInterval(() => newYeaer(),1000)
+        
+        
+
+
+    
+
+    </script>
+</body>
+</html>

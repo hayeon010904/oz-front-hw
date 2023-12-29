@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단심화</title>
+<style>
+    td{
+        text-align: center;
+    }
+</style>
+ 
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td id="title1"></td>
+            <td id="title2"></td>
+            <td id="title3"></td>
+            <td id="title4"></td>
+            <td id="title5"></td>
+            <td id="title6"></td>
+            <td id="title7"></td>
+            <td id="title8"></td>
+            <td id="title9"></td>    
+        </tr>
+        <tr>
+            <td id="content1"></td>
+            <td id="content2"></td>
+            <td id="content3"></td>
+            <td id="content4"></td>
+            <td id="content5"></td>
+            <td id="content6"></td>
+            <td id="content7"></td>
+            <td id="content8"></td>
+            <td id="content9"></td>    
+        </tr>
+    </table>
+    <script>
+
+        for(let i = 1; i<=9; i++){           
+            const title = document.getElementById(`title${i}`)
+            title.textContent =   (`${i}단`)
+            const content = document.getElementById(`content${i}`) 
+
+            for(let j=1; j<=9; j++){                          
+                content.innerHTML += `${i} X ${j} = ${i * j} <br>`  
+            }
+        }
+        </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단</title>
+</head>
+<body>   
+   <h1>구구단을 만들어보세요!</h1>
+   <script>
+
+    for(let i = 1; i<=9; i++){
+        document.write(`${i}단<br>`)
+        for(let j=1; j<=9; j++){           
+            document.write(`${i} X ${j} = ${i * j} <br>` ) 
+        }
+    }
+    </script>
+</body>
+</html>
+
+
