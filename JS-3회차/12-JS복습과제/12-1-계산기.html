@@ -3,267 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>계산기 만들기</title>
-    <style>
-
-        div{
-            padding-top: 1rem;
-            border: 1px solid black;
-            width: 20rem;
-            height: 20rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-        }
-        input{
-            width: 80%;
-            height: 20%;
-            border-radius: 10px;
-            text-align: right;
-            font-size: 2rem;
-            padding-right: 20px;
-        }
-        table{
-            width: 80%;
-            height: 80%;
-            text-align: center;
-        }
-       
-    </style>
+    <title>계산기</title>
 </head>
+<style>
+        @font-face {
+    font-family: 'omyu_pretty';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'omyu_pretty';
+    }
+    body{
+        background-color: #1f1f1f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+    .calculator{
+        border: 1px solid #3333;
+        background-color: #ffbfbf;
+        padding: 5px;
+        /* width: 287px; */
+        border-radius: 20px;
+    }
+    form{
+        display: grid;
+        grid-template-columns: repeat(4,65px);
+        grid-template-rows:  70px 50px 65px 65px 65px 65px;
+        padding:10px;
+        gap:5px;
+      
+    }
+   .calculator form input{
+    border: 2px solid #333;
+    cursor: pointer;
+    font-size: 22px;
+    border-radius: 50%;
+    /* border-radius: 50%; */
+   }
+   .calculator form input:hover{
+   box-shadow: 1px 1px 2px #333;
+   }
+   .clear{
+    background-color: #f8f47e;
+    grid-column: span 4;
+   }
+   .operator{
+    background-color: rgb(198, 193, 189);
+   }
+
+   form input[name="output"]{
+    grid-column: span 3;
+    text-align: right;
+    font-size: 30px;
+    padding-right: 15px;
+ 
+
+   }
+   #input_op{
+    text-align: center;
+    font-size: 30px;
+
+   }
+   .result{
+    grid-column: span 1;
+    border-radius: 30px;
+    background-color:rgba(108, 236, 198, 0.619)
+   }   
+   #n0{
+    grid-column: span 2;
+   }
+#op-clear , #output,#n0{
+    border-radius: 50px;
+    
+   }
+
+#input_op,#output{
+    border-radius: 20px;
+
+}
+#input_op{
+    background-color: rgba(248, 202, 217, 0.852);
+}
+</style>
 <body>
-    <h1>Click My Calculator</h1>
-    <div id="Calculator">
-        <input id="input">
-        <table>
-            <tr>
-                <td id="7" class="number-key">7</td>
-                <td id="8" class="number-key">8</td>
-                <td id="9" class="number-key">9</td>
-                <td id="*" class="calKey">x</td>
-            </tr>
-            <tr>
-                <td id="4" class="number-key">4</td>
-                <td id="5" class="number-key">5</td>
-                <td id="6" class="number-key">6</td>
-                <td id="/" class="calKey">/</td>
-            </tr>
-            <tr>
-                <td id="1" class="number-key">1</td>
-                <td id="2" class="number-key">2</td>
-                <td id="3" class="number-key">3</td>
-                <td id="-" class="calKey">-</td>
-            </tr>
-            <tr>
-                <td id="C" class="calKey">C</td>
-                <td id="0" class="number-key">0</td>
-                <td id="+" class="calKey">+</td>
-                <td id="=" class="calKey">=</td>
-            </tr>
-        </table>        
+    <div class="calculator">
+        <form name="forms">
+            <input type="text" id="input_op">
+            <input type="text" name="output" id="output">
+            <input type="button" class="clear" value="CLEAR" id="op-clear">
+            
+            <input type="button" value="7" id="n7" >
+            <input type="button" value="8" id="n8" >
+            <input type="button" value="9" id="n9" >   
+            <input type="button" class="operator" value="÷" id="op-div">
+           
+            <input type="button" value="4" id="n4" >
+            <input type="button" value="5" id="n5" >
+            <input type="button" value="6" id="n6" >
+            <input type="button" class="operator" value="x" id="op-mul">
+          
+            <input type="button" value="1" id="n1" >
+            <input type="button" value="2" id="n2" >
+            <input type="button" value="3" id="n3" >     
+            <input type="button" class="operator" value="+" id="op-plus">      
+          
+            <input type="button" value="0" id="n0" >
+            <input type="button" class="operator result" value="=" id="op-result"">
+            <input type="button" class="operator" value="-" id="op-minus">
+
+        </form>
     </div>
 
-
     <script>
-        // 1. 각 숫자칸에 숫자형 대입. => 완료! ->  return !!!!!!!!!!!!! 값 반환 !!!!!!
-        // 3. 숫자칸 누르면 입력창에 뜨도록. 
-        // 2. 사칙연산 기호에 .. 연산 대입
+        let numFirst = "" //계산입력 첫번째 숫자
+        let numSecond = "" //계산입력 두번째 숫자
+        let op_input = null //입력된 연산자를 지정하는 변수
+        const output = document.getElementById("output")
 
-        // 각각의 숫자 값 출력parseInt
+        //higher-order function
+        const numFunc = (n) => { //n --- '0','1'....'9'
+           //함수를 만들어서 return한다! 
+            return ()=>{
+                if(op_input === null){ 
+                numFirst = numFirst + n;
+                output.value=numFirst
+            }
+                else{
+                numSecond = numSecond + n;
+                output.value=numSecond
+            };
+        };
+    };
 
-              
+    //higher-order functoin
+    // const opFunc = ()=>{
+    //     return ()=>{
 
+    //     }
+    // }
 
-        // document.parseInt(getElementsByClassName('number-key'),textContent)
-        // function number(id){
-        //     return parseInt(document.getElementById(id).textContent)           
-        // }
-
-
-        const keys = document.querySelectorAll(".number-key, .calKey")
-        // const numberKey = parseInt(document.querySelectorAll('.number-key'))
-        // const calKey = document.querySelectorAll(".calKey")
-        const displayInput = document.getElementById("input")
-
-        let currentInput = ""
-        let currentOperator = ""
-        let n1 =""
-        let n2 =""
-        
-        keys.forEach(key => {
-            key.addEventListener('click',function (e){
-                const clickedValue = e.target.textContent
-
-
-        if(clickedValue === "+" || clickedValue === "-" || clickedValue === "x" || clickedValue === "/" ){
-        currentOperator = clickedValue
-        n1=currentInput
-        
-        currentInput =""
-       
-        } else if (clickedValue === "=") {
-        // 등호를 클릭했을 때
-        n2=currentInput
-        // n2 = currentInput; // 현재 입력 값을 n2에 저장
-        currentInput = calculate(n1, currentOperator, n2);
-        // currentOperator = ""; // 연산자 초기화
-        
-        } else if(clickedValue === "C"){
-            currentInput=""
-           
+    const opFunc = (op) => () => {
+        switch(op){
+            case '+': 
+            case '-':
+            case '÷':
+            case 'x':
+                op_input = op
+                input_op.value=op_input
+                break
+            case'=': 
+                switch(op_input){
+                    
+                    case '+': 
+                        output.value = parseInt(numFirst)+parseInt(numSecond);
+                        output.style.color = "rgb(255, 85, 0)";
+                        break
+                    case '-':
+                        output.value = parseInt(numFirst)-parseInt(numSecond);
+                        output.style.color = "rgb(255, 85, 0)";
+                        break
+                    case '÷':
+                        output.value = parseInt(numFirst)/parseInt(numSecond);
+                        output.style.color = "rgb(255, 85, 0)";
+                        break
+                    case 'x':
+                        output.value = parseInt(numFirst)*parseInt(numSecond);
+                        output.style.color = "rgb(255, 85, 0)";
+                        break
+                }
+                break
+            case 'clear':
+                numFirst = ''
+                numSecond= ''
+                input_op.value=''
+                op_input=null
+                output.value=""
+                break
         }
-        else {
-        // 숫자나 기타 버튼을 클릭했을 때
-        currentInput += clickedValue;
-        }
-
-        displayInput.value = currentInput
-        })
-        }
-        )
-
-    function calculate(n1, operator, n2){
-        let result = 0
-        if(operator === "+"){
-            result = Number(n1) + Number(n2)
-        }else if (operator === '-') {
-        result = Number(n1) - Number(n2);
-        } else if (operator === 'x') {
-        result = Number(n1) * Number(n2);
-        } else if (operator === '/') {
-        result = Number(n1) / Number(n2);
-        }
-        return String(result)
+               
+                  
     }
 
-            // if(e.target.textContent === "+"){
-            //     function calculate (n1,n2){
-            //     console.log(key(n1) + key(n2))
-            // }
-            //     }
-        
-
-        
+        document.querySelector('#n0').addEventListener('click', numFunc('0'))
+        document.querySelector('#n1').addEventListener('click', numFunc('1'))
+        document.querySelector('#n2').addEventListener('click', numFunc('2'))
+        document.querySelector('#n3').addEventListener('click', numFunc('3'))
+        document.querySelector('#n4').addEventListener('click', numFunc('4'))
+        document.querySelector('#n5').addEventListener('click', numFunc('5'))
+        document.querySelector('#n6').addEventListener('click', numFunc('6'))
+        document.querySelector('#n7').addEventListener('click', numFunc('7'))
+        document.querySelector('#n8').addEventListener('click', numFunc('8'))
+        document.querySelector('#n9').addEventListener('click', numFunc('9'))
        
 
-
-        // 각각의 버튼 지정
-        // function Btn(id){
-        // return document.getElementById(id)
-        // }
-        // const Btn1 = Btn(1)
-        // const Btn2 = Btn(2)
-        // const Btn3 = Btn(3)
-        // const Btn4 = Btn(4)
-        // const Btn5 = Btn(5)
-        // const Btn6 = Btn(6)
-        // const Btn7 = Btn(7)
-        // const Btn8 = Btn(8)
-        // const Btn9 = Btn(9)
-        // const Btn0 = Btn(0)
-
-        
-
-        // 버튼 누르면  숫자가 인풋 박스에 들어가도록 
-
-    //    let currentInput = 0
-    //    function input (Btn,x){
-    //     Btn.addEventListener('click',function(){    
-    //         currentInput = currentInput *10 + number(x)
-    //     const input = document.getElementById("input")
-    //     input.value=currentInput 
-          
-    //     })
-   
-//}
-
-    //    input(Btn1,1) 
-    //    input(Btn2,2)
-    //    input(Btn3,3)
-    //    input(Btn4,4)
-    //    input(Btn5,5)
-    //    input(Btn6,6)
-    //    input(Btn7,7)
-    //    input(Btn8,8)
-    //    input(Btn9,9)
-    //    input(Btn0,0)
-
-
-
-
-           //     function cal(id){
-    //     return document.getElementById(id).value
-    //     }
-
-    // console.log(cal('/'))
-
-         // const mulBtn = Btn('*')
-        // const divBtn = Btn('/')
-        // const minBtn = Btn('-')
-        // const pluBtn = Btn('+')
-        // const resultBtn = Btn('=')
-        // const resetBtn = Btn('c')
-        //     function cal (Btn,y){    
-    //     Btn.addEventListener('click',function(){ 
-    //     const input = document.getElementById("input")
-    //     input.value += y
-    
-    // })}
-// cal(mulBtn,'*')
-// cal(divBtn,'/')
-// cal(minBtn,'-')
-// cal(pluBtn,'+')
-// cal(resultBtn,'=')
-// cal(resetBtn,'c')
-    
-
-    //    input(mulBtn,'*')
-    //    input(divBtn,'/')
-    //    input(minBtn,'-')
-    //    input(pluBtn,'+')
-    //    input(resultBtn,'=')
-    //    input(resetBtn,'c')
-
+        document.querySelector('#op-div').addEventListener('click', opFunc('÷'))
+        document.querySelector('#op-plus').addEventListener('click', opFunc('+'))
+        document.querySelector('#op-minus').addEventListener('click', opFunc('-'))
+        document.querySelector('#op-mul').addEventListener('click', opFunc('x'))
+        document.querySelector('#op-result').addEventListener('click', opFunc('='))
+        document.querySelector('#op-clear').addEventListener('click', opFunc('clear'))
+  
+      
       
     
-   
-
-    // return document.getElementById('x').value += '*'
-    // const div = document.getElementById('/').value += '/'
-    // const min = document.getElementById('+').value += '-'
-    // const plu = document.getElementById('=').value += '='
-
-  
-
-
-
-
-
-
-    // console.log(number('1'))
-
-
-
-        //   const num1 = number(1)
-        //   const num2 = number(2)
-        //   const num3 = number(3)
-        //   const num4 =number(4)
-        //   const num5 =number(5)
-        //   const num6 =number(6)
-        //   const num7 =number(7)
-        //   const num8 =number(8)
-        //   const num9 =number(9)
-        //   const num0 =number(0)
+       
+           
+      
         
-
-        // const num7 = (parseInt(document.getElementById('7').textContent))
-        // console.log(num7)
-
-
-
-
-
     </script>
 </body>
 </html>
