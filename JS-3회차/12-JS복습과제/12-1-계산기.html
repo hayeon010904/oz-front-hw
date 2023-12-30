@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기 만들기</title>
+    <style>
+
+        div{
+            padding-top: 1rem;
+            border: 1px solid black;
+            width: 20rem;
+            height: 20rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        input{
+            width: 80%;
+            height: 20%;
+            border-radius: 10px;
+            text-align: right;
+            font-size: 2rem;
+            padding-right: 20px;
+        }
+        table{
+            width: 80%;
+            height: 80%;
+            text-align: center;
+        }
+       
+    </style>
+</head>
+<body>
+    <h1>Click My Calculator</h1>
+    <div id="Calculator">
+        <input id="input">
+        <table>
+            <tr>
+                <td id="7" class="number-key">7</td>
+                <td id="8" class="number-key">8</td>
+                <td id="9" class="number-key">9</td>
+                <td id="*" class="calKey">x</td>
+            </tr>
+            <tr>
+                <td id="4" class="number-key">4</td>
+                <td id="5" class="number-key">5</td>
+                <td id="6" class="number-key">6</td>
+                <td id="/" class="calKey">/</td>
+            </tr>
+            <tr>
+                <td id="1" class="number-key">1</td>
+                <td id="2" class="number-key">2</td>
+                <td id="3" class="number-key">3</td>
+                <td id="-" class="calKey">-</td>
+            </tr>
+            <tr>
+                <td id="C" class="calKey">C</td>
+                <td id="0" class="number-key">0</td>
+                <td id="+" class="calKey">+</td>
+                <td id="=" class="calKey">=</td>
+            </tr>
+        </table>        
+    </div>
+
+
+    <script>
+        // 1. 각 숫자칸에 숫자형 대입. => 완료! ->  return !!!!!!!!!!!!! 값 반환 !!!!!!
+        // 3. 숫자칸 누르면 입력창에 뜨도록. 
+        // 2. 사칙연산 기호에 .. 연산 대입
+
+        // 각각의 숫자 값 출력parseInt
+
+              
+
+
+        // document.parseInt(getElementsByClassName('number-key'),textContent)
+        // function number(id){
+        //     return parseInt(document.getElementById(id).textContent)           
+        // }
+
+
+        const keys = document.querySelectorAll(".number-key, .calKey")
+        // const numberKey = parseInt(document.querySelectorAll('.number-key'))
+        // const calKey = document.querySelectorAll(".calKey")
+        const displayInput = document.getElementById("input")
+
+        let currentInput = ""
+        let currentOperator = ""
+        let n1 =""
+        let n2 =""
+        
+        keys.forEach(key => {
+            key.addEventListener('click',function (e){
+                const clickedValue = e.target.textContent
+
+
+        if(clickedValue === "+" || clickedValue === "-" || clickedValue === "x" || clickedValue === "/" ){
+        currentOperator = clickedValue
+        n1=currentInput
+        
+        currentInput =""
+       
+        } else if (clickedValue === "=") {
+        // 등호를 클릭했을 때
+        n2=currentInput
+        // n2 = currentInput; // 현재 입력 값을 n2에 저장
+        currentInput = calculate(n1, currentOperator, n2);
+        // currentOperator = ""; // 연산자 초기화
+        
+        } else if(clickedValue === "C"){
+            currentInput=""
+           
+        }
+        else {
+        // 숫자나 기타 버튼을 클릭했을 때
+        currentInput += clickedValue;
+        }
+
+        displayInput.value = currentInput
+        })
+        }
+        )
+
+    function calculate(n1, operator, n2){
+        let result = 0
+        if(operator === "+"){
+            result = Number(n1) + Number(n2)
+        }else if (operator === '-') {
+        result = Number(n1) - Number(n2);
+        } else if (operator === 'x') {
+        result = Number(n1) * Number(n2);
+        } else if (operator === '/') {
+        result = Number(n1) / Number(n2);
+        }
+        return String(result)
+    }
+
+            // if(e.target.textContent === "+"){
+            //     function calculate (n1,n2){
+            //     console.log(key(n1) + key(n2))
+            // }
+            //     }
+        
+
+        
+       
+
+
+        // 각각의 버튼 지정
+        // function Btn(id){
+        // return document.getElementById(id)
+        // }
+        // const Btn1 = Btn(1)
+        // const Btn2 = Btn(2)
+        // const Btn3 = Btn(3)
+        // const Btn4 = Btn(4)
+        // const Btn5 = Btn(5)
+        // const Btn6 = Btn(6)
+        // const Btn7 = Btn(7)
+        // const Btn8 = Btn(8)
+        // const Btn9 = Btn(9)
+        // const Btn0 = Btn(0)
+
+        
+
+        // 버튼 누르면  숫자가 인풋 박스에 들어가도록 
+
+    //    let currentInput = 0
+    //    function input (Btn,x){
+    //     Btn.addEventListener('click',function(){    
+    //         currentInput = currentInput *10 + number(x)
+    //     const input = document.getElementById("input")
+    //     input.value=currentInput 
+          
+    //     })
+   
+//}
+
+    //    input(Btn1,1) 
+    //    input(Btn2,2)
+    //    input(Btn3,3)
+    //    input(Btn4,4)
+    //    input(Btn5,5)
+    //    input(Btn6,6)
+    //    input(Btn7,7)
+    //    input(Btn8,8)
+    //    input(Btn9,9)
+    //    input(Btn0,0)
+
+
+
+
+           //     function cal(id){
+    //     return document.getElementById(id).value
+    //     }
+
+    // console.log(cal('/'))
+
+         // const mulBtn = Btn('*')
+        // const divBtn = Btn('/')
+        // const minBtn = Btn('-')
+        // const pluBtn = Btn('+')
+        // const resultBtn = Btn('=')
+        // const resetBtn = Btn('c')
+        //     function cal (Btn,y){    
+    //     Btn.addEventListener('click',function(){ 
+    //     const input = document.getElementById("input")
+    //     input.value += y
+    
+    // })}
+// cal(mulBtn,'*')
+// cal(divBtn,'/')
+// cal(minBtn,'-')
+// cal(pluBtn,'+')
+// cal(resultBtn,'=')
+// cal(resetBtn,'c')
+    
+
+    //    input(mulBtn,'*')
+    //    input(divBtn,'/')
+    //    input(minBtn,'-')
+    //    input(pluBtn,'+')
+    //    input(resultBtn,'=')
+    //    input(resetBtn,'c')
+
+      
+    
+   
+
+    // return document.getElementById('x').value += '*'
+    // const div = document.getElementById('/').value += '/'
+    // const min = document.getElementById('+').value += '-'
+    // const plu = document.getElementById('=').value += '='
+
+  
+
+
+
+
+
+
+    // console.log(number('1'))
+
+
+
+        //   const num1 = number(1)
+        //   const num2 = number(2)
+        //   const num3 = number(3)
+        //   const num4 =number(4)
+        //   const num5 =number(5)
+        //   const num6 =number(6)
+        //   const num7 =number(7)
+        //   const num8 =number(8)
+        //   const num9 =number(9)
+        //   const num0 =number(0)
+        
+
+        // const num7 = (parseInt(document.getElementById('7').textContent))
+        // console.log(num7)
+
+
+
+
+
+    </script>
+</body>
+</html>
