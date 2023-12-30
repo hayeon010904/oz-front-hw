@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <title>스톱워치</title>
+
+    <style>
+   @font-face {
+        font-family: 'HBIOS-SYS';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/HBIOS-SYS.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+    font-family: 'omyu_pretty';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+        *{
+            box-sizing: border-box;
+            font-family: 'omyu_pretty';
+            
+        }
+        #container{
+            border: 3px solid #ebd9eb;
+            border-radius: 50%  50% 5% 5%;
+            height: 16rem;
+            width: 14.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-color: #fceafc;
+        }
+        #start{
+            border: 3px solid #ebd9eb;
+            border-radius: 50%;
+            height: 10rem;
+            width: 10rem;
+            font-size: 2rem;
+            position: absolute;
+            top:1rem;
+            background-color: rgba(244, 242, 242, 0.615);
+            font-family: 'omyu_pretty';
+            line-height: 2.5rem;
+            color: rgba(14, 14, 14, 0.528);
+        }
+
+        #time{
+            width: 13rem;
+            height: 3.7rem;
+            border: 3px solid rgba(121, 119, 119, 0.35);
+            border-radius: 20px;
+            position: absolute;
+            top: 9.8rem;
+            background-color: rgba(121, 119, 119, 0.137);
+            font-size: 2.7rem;
+            text-align: center;
+            line-height: 2.7rem;
+            font-family: 'HBIOS-SYS';
+            color: rgb(61, 61, 61)
+        }
+        #reset{
+            border: 2px solid #ebd9eb;
+            width: 1.2rem;
+            height: 1.2rem;
+            position: absolute;
+            top: 9.6rem;
+            left: 12rem;
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <button id="start">start<br>stop</button>
+    
+    <h1 id="time">
+   <span id="minutes">00</span >:<span id="seconds">00</span>:<span id="tenMillis">00</span>
+    </h1> 
+    
+    <!-- <button id="stop"></button> -->
+    <button id="reset"></button>
+    </div>
+
+
+    <script>
+    let minutes = 0;
+    let seconds = 0;
+    let tenMillis = 0;
+
+    const appendMinutes = document.getElementById("minutes")
+    const appendSeconds = document.getElementById("seconds")
+    const appnedTens = document.getElementById("tenMillis")
+    const start = document.getElementById("start")
+    // const stop = document.getElementById("stop")
+    const reset = document.getElementById("reset")
+    let intervalId;
+    
+    start.onclick = function(){
+        clearInterval(intervalId)
+        intervalId = setInterval(opperateTimer,10)
+    }
+   
+     start.ondblclick = function(){
+        clearInterval(intervalId)
+    } 
+ 
+    // stop.onclick = function(){
+        
+    // }  
+    
+    reset.onclick = function(){
+        clearInterval(intervalId)
+        tenMillis=0; minutes=0; seconds=0;
+        appendMinutes.textContent = "00"
+        appendSeconds.textContent = "00"
+        appnedTens.textContent = "00"
+        }
+   
+
+    function opperateTimer(){
+    tenMillis++;
+    appnedTens.textContent = tenMillis > 9 ? tenMillis : "0" + tenMillis
+   
+    if(tenMillis > 99){
+        seconds++ 
+        appendSeconds.textContent = seconds > 9 ? seconds : "0" + seconds
+        tenMillis = 0
+        appnedTens.textContent = "00"
+    }
+    if(seconds > 59){
+        minutes++ 
+        appendMinutes.textContent = minutes > 9 ? minutes : "0" + minutes
+        seconds = 0
+        appendSeconds.textContent = "00"
+    }
+}      
+    
+
+    </script>
+</body>
+</html>
