@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 멈춰!</title>
+    <style>
+
+    #container{width: 1000px;
+        height: 700px; 
+        max-width: 600px;  
+        background-color: rgb(71, 70, 70);      
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        } 
+  
+    #imgDiv{
+        width: 500px;
+        height: 500px;     
+    }
+    h1{
+        color: palevioletred;
+        font-size: 40px;
+        margin: 0;
+    }
+    span{
+        color: red;
+    }
+    p{
+        text-align: center;
+        color: bisque;
+    }
+    #button{
+        width: 100%;
+       display: flex;
+       justify-content: space-evenly;        
+    }
+    button{
+        font-size: 20px;
+        font-weight: 900;
+        margin-top: 10px;
+        width: 100px;
+        height: 40px;
+        border-radius: 20px;
+        background-color: rgb(236, 255, 192);
+    }
+    button:hover{
+        background-color: rgb(249, 137, 156);
+    }
+    </style>
+</head>
+<body>
+    <div id="container">        
+        <h1>정형돈을 찾아라! <span>두둥</span></h1>
+        <p>시작을 누르면 빨라집니다..🍀 <br>한 번만에 찾으면 럭키~ </p>  
+        <div id="imgDiv"> </div>        
+        <div id="button">
+            <button id="start">시작</button>
+            <button id="stop">멈춰</button>
+        </div>
+    </div>
+
+    <script>
+        const imgDiv = document.getElementById('imgDiv')   
+        const startButton = document.getElementById('start')  
+        const stopButton = document.getElementById('stop') 
+
+        const images = [
+        "url(images/a1.jpeg)",
+        "url(images/a2.jpeg)",
+        "url(images/a3.jpeg)",
+        "url(images/a4.jpeg)"  
+        ]     
+        // 사진을 배열에 넣는다.
+        // 첫번쨰 이미지를 꺼낸다.
+        // 이미지를 배경에 대입한다.
+        // 이미지를 마지막에 넣는다.
+        function backgroundImage (){
+            const firstImg = images.shift()
+            imgDiv.style.backgroundImage = firstImg
+            const lastImg = images.push(firstImg)
+        }
+        let stopId = 0;
+        let startStopId = 0;
+
+           stopId = setInterval(()=>{
+              backgroundImage()       
+        },1000)
+        
+        startButton.addEventListener('click',()=>{            
+           startStopId = setInterval(()=>{
+              backgroundImage()       
+        },100)
+        },)
+        stopButton.addEventListener('click',()=>{
+            clearInterval(stopId)
+        })
+        stopButton.addEventListener('click',()=>{
+            clearInterval(startStopId)
+        })
+  
+        stopButton.addEventListener('click',function(){            
+            const img = imgDiv.style.backgroundImage
+            console.log(img)
+           if(img === 'url("images/a1.jpeg")'){
+            alert('축하합니다 형돈씨의 행운이 깃들길..!')
+           }else{
+            alert('다시 다시 도즈언!!')
+           }
+    //     if (img.includes('a1.jpeg')) {
+    //     alert('축하합니다 형돈씨의 행운이 깃들길..!');
+    // } else {
+    //     alert('다시 다시 도즈언!!');
+    // }
+        })
+    </script>
+</body>
+</html>

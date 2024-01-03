@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보</title>
+</head>
+<body>
+    <div>
+        <h1>가위바위보 게임</h1>
+            <p>가위,바위,보 중 하나를 입력하세요.</p> 
+            <input id="input"> 
+            <button id="resultButton">결과확인</button>   
+            <p id="result"></p>
+    </div>
+    
+    <script>
+        const input = document.getElementById('input')    
+        const resultButton = document.getElementById('resultButton')
+        const result = document.getElementById('result')
+        const random = ['가위', '바위', '보']      
+        
+
+        resultButton.addEventListener('click',function(){
+            let computerRandom = random[Math.floor(Math.random()*3)]
+            console.log(computerRandom)      
+
+         if ((input.value === '가위') && (computerRandom === '보') || 
+        (input.value === '바위') && (computerRandom === '가위') || 
+        (input.value === '보') && (computerRandom === '바위')){
+            result.textContent = `당신의 선택: ${input.value} / 컴퓨터의 선택: ${computerRandom} / 결과: 이겼습니다.`
+         } else if((input.value === '가위') && (computerRandom === '바위')  ||
+         (input.value === '바위') && (computerRandom === '보')  || 
+         (input.value === '보') && (computerRandom === '가위') ){
+                     result.textContent = `당신의 선택: ${input.value} / 컴퓨터의 선택: ${computerRandom} / 결과: 졌습니다.`
+        }else if(input.value === computerRandom){
+            result.textContent = `당신의 선택: ${input.value} / 컴퓨터의 선택: ${computerRandom} / 결과: 비겼습니다.`
+        }})
+    
+    
+      
+
+
+
+
+    </script>
+</body>
+</html>
