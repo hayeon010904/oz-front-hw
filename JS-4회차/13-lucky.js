@@ -17,17 +17,25 @@
  *
  */
 
-function question(n, m) {
-   
+let luckynumber = []
 
-    const lucky = Math.floor(Math.random()*10 +1)
-
-
-        console.log(`${i}회차 행운의 숫자: ${lucky} 낙첨 `)
+function question(n, m) {     
+    for(let i = 1; i<=10; i++){
+        if(Math.floor(Math.random()*10 +1) === n)
+        {
+            console.log(`${i}회차 🍀행운의 숫자🍀: ${Math.floor(Math.random()*10 +1)} 당첨~!!!!  낙첨`) 
+            luckynumber.push(Math.floor(Math.random()*10 +1))
+        } 
+        else {
+            console.log(`${i}회차 🍀행운의 숫자🍀: ${Math.floor(Math.random()*10 +1)} 낙첨`) 
+        }
     }
+    
 
     // 여기에서 코드 작성해주세요!
-    let result;
+    let result = console.log(`당첨금은 ${luckynumber.length * m} 원 입니다.`)
+
+}
 
 
 question(4, 10000);
