@@ -27,6 +27,39 @@ function question(str) {
     // 여기에서 코드 작성해주세요!
     let result;
 
+    //1. 문자열을배열에 넣기 
+    //-> 각각 문자를 따로따로 넣어야 reverse 가 되는디~ => split('')
+    //-> 문자 중간의 공백도 뺴야함 trim() => tirm은 앞뒤의 공백만 제거해줌. replace사용
+    //-> 대소문자도 ... toLowerCase()..쉼표도..느낌표랑 이거 하나하나 다 뺴야하나;;;;;;;;
+    //2. 배열을 문자로 반환해서 다시 reverse 
+    //3. 서로 비교
+
+    let realstr = str.toLocaleLowerCase().replace(/\s/g,"").replace(/,/g, '').replace(/:/g, '').replace(/\?/g, '').replace(/'/g, '');
+    console.log(realstr)
+    let reverseRealstr = str.toLocaleLowerCase().replace(/\s/g,"").split('').reverse().join('').replace(/,/g, '').replace(/:/g, '').replace(/\?/g, '').replace(/'/g, '');
+    console.log(reverseRealstr)
+
+   if(realstr === reverseRealstr){
+    result = true
+   }else{
+    result = false
+   }
+
+
+    // let realArr = str.toLowerCase().trim()
+
+    // let strArr = str.split('').join('');
+    // let reverseStrArr =  str.split('').reverse().join('');
+    
+    // if(strArr===reverseStrArr){
+    //     result = true
+    // }else{
+    //     result = false
+    // }
+
+    // function reverseStrArr(str){
+    //     return str.split('').reverse().join('');
+    // } 
     return result;
 }
 
