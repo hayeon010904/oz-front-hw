@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./images/oz_icon.png" />
+    <title>오즈코딩스쿨 | 카운트다운 타이머</title>
+    <style>
+      .footer {
+        font-size: 12px;
+        text-align: center;
+      }
+      .footer a {
+        color: hsl(282, 100%, 21%);
+        text-decoration: none;
+      }
+      html{
+        width: 100%;
+        height: 100%;
+      }
+      body{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* justify-content: space-around; */
+      }
+      #container{
+        /* border: 1px solid black; */
+        width: 60rem;
+        height: 18rem;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;        
+      }
+      .timerDiv{
+        background-color: pink;
+        width: 14rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .display{
+        color: white;
+        font-size: 10rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>HAPPY BIRTHDAY🎉</h1>
+      <h5>until your birthday:</h5>
+    </header>
+
+   <main>
+    <div id="container">      
+      <div id="daysDiv" class="timerDiv">
+        <p id="days" class="display"></p>
+        <p>Days</p> 
+      </div>
+      <div id="hoursDiv" class="timerDiv">
+        <p id="hours" class="display"></p>
+        <p>Hours</p>
+      </div>
+      <div id="minutesDiv" class="timerDiv">
+        <p id="minutes" class="display"></p>
+        <p>Minutes</p>
+      </div>
+      <div id="secondsDiv" class="timerDiv">
+        <p id="seconds" class="display"></p>
+        <p>Seconds</p>
+    </div>    
+    </div>
+  </main>
+
+    <div class="footer">
+      © 2023. <a href="https://ozcodingschool.com/" target="_blank">ozcodingschool</a>. All rights
+      reserved. Developed by <a href="#">hayeom</a>.
+    </div>
+
+    <script>
+      //1. 시간 넣을 div 지정
+      //2. date()이용해서 각각의 시간 넣기
+      //3. setInterval로 1초마다 바뀌게. 
+      //4. 새로고침해도 남아있도록.
+      //5. 00:00:00:00되면 경과한 시간 띄우기 + 새로운 날짜를 선택하세요!(날짜선택..할 수 있도록)
+
+      //1. 시간 넣을 div 지정
+      const daysDiv = document.getElementById('days')
+      const hoursDiv = document.getElementById('hours')
+      const minutesDiv = document.getElementById('minutes')
+      const secondsDiv = document.getElementById('seconds')
+      
+      setInterval(function(){
+      //2. date()이용해서 각각의 시간 넣기
+      const now = new Date(); //Sat Jan 06 2024 05:56:37
+      const birthday = new Date(2024, 8, 4); //Wed Sep 04 2024 00:00:00 GMT+0900
+      
+        //생일시간에서 현재시간 빼기
+      const currentTime = new Date().getTime(); //1704488275434 
+      var birthdayTime = birthday.getTime(); //1725375600000 
+      var timeDifference = birthdayTime - currentTime; //20887269633
+
+        //밀리초로 반환된 것 각각 바꾸기
+      const days = Math.floor( timeDifference/(1000*3600*24) )
+      const hours = Math.floor( timeDifference/(1000*3600) %24)
+      const minutes = Math.floor( timeDifference/(1000*60) %60)
+      const seconds = Math.floor( timeDifference/(1000) %60)
+        
+        //바꾼거 박스에 넣어주기
+      daysDiv.textContent = days;
+      hoursDiv.textContent = hours;
+      minutesDiv.textContent = minutes;
+      secondsDiv.textContent = seconds;
+
+      //3. setInterval로 1초마다 바뀌게.  //전체에 setInterval 씌움!
+    },1000)
+
+      
+   
+      //4. 새로고침해도 남아있도록
+      //5. 00:00:00:00되면 경과한 시간 띄우기 + 새로운 날짜를 선택하세요!
+    </script>
+  </body>
+</html>
