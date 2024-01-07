@@ -1,0 +1,92 @@
+@font-face {
+    font-family: 'Minhye';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Minhye.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+*{
+    box-sizing: border-box;
+    /* 스크롤 이동 스무스하게 */
+    scroll-behavior: smooth; 
+    font-family: 'Minhye';
+    background-color: antiquewhite;
+}
+html.body{
+    margin: 0;
+}
+#container{
+    width: 100%;
+    max-width: 640px;
+    min-width: 640px;
+    margin: auto;
+}
+h1{
+    width: 100%;
+    max-width: 640px;
+    position: fixed;
+    top:0px;
+    /* padding: 1rem; */
+    margin:auto;
+    background-color:  rgb(232, 191, 137);
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+header{
+    width: 100%;
+    max-width: 640px;
+    height: 60px;
+    border-bottom: 1px solid #00000033;
+    background-color: rgb(232, 191, 137);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 60px;
+}
+.header__search{
+    display: flex;
+    align-items: center;
+    width: 9rem;
+    
+}
+input, button, select{
+    height: 30px;
+    border: 0.5px solid gray;
+    background-color: rgb(242, 200, 146, 203, 177);
+    width: 6rem;
+    font-size: 1.4rem;
+}
+main{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 120px;
+}
+img{
+    width: 200px;
+    height: 200px;
+}
+.more, .tothetop{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    cursor: pointer;    
+}
+.more{
+    color: #FFFFFF;
+    background-color: #cd8f6b;
+    left: 100px;
+    bottom: 100px;
+}
+.tothetop{
+    color: #FFFFFF;
+    background-color: #cd8f6b;
+    right: 100px;
+    bottom: 100px;
+}
