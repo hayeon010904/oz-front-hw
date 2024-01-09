@@ -1,127 +1,19 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="./images/oz_icon.png" />
-    
+    <link href="countdown-timer.css" rel="stylesheet">
     <title>오즈코딩스쿨 | 카운트다운 타이머</title>
-
-    <style>
-
-@font-face {
-    font-family: 'omyu_pretty';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;}
-   
-      .footer {
-        font-size: 12px;
-        text-align: center;
-      }
-      .footer a {
-        color: hsl(282, 100%, 21%);
-        text-decoration: none;
-      }
-      html{
-        width: 100%;
-        height: 100%;
-      }
-      body{
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background: #EC5B5B;
-background: -moz-linear-gradient(45deg, #EC5B5B 0%, #F687B9 50%, #E7AB40 100%);
-background: -webkit-linear-gradient(45deg, #EC5B5B 0%, #F687B9 50%, #E7AB40 100%);
-background: linear-gradient(45deg, #EC5B5B 0%, #F687B9 50%, #E7AB40 100%);
-        /* justify-content: space-around; */
-      }
-      #container{
-        /* border: 1px solid black; */
-        width: 60rem;
-        /* width: 75vw; */
-        height: 15rem;
-        margin: auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;   
-         
-      }
-      .timerDiv{
-        /* padding-left: 0.5rem;  
-        padding-right: 0.5rem;    */
-        background: #FFCBDC;
-background: -moz-linear-gradient(45deg, #FFCBDC 0%, #FFB9B9 0%, #F2F3D8 100%);
-background: -webkit-linear-gradient(45deg, #FFCBDC 0%, #FFB9B9 0%, #F2F3D8 100%);
-background: linear-gradient(45deg, #FFCBDC 0%, #FFB9B9 0%, #F2F3D8 100%);
-        -webkit-box-shadow: 0px 10px 13px -7px #000000, -50px -50px 15px -6px rgba(174,174,174,0); 
-box-shadow: 0px 10px 13px -7px #000000, -50px -50px 15px -6px rgba(174,174,174,0);
-        /* -webkit-box-shadow: 5px 5px 15px 5px #FF8080, -9px 5px 15px 5px #FFE488, -7px -5px 15px 5px #8CFF85,
-         12px -5px 15px 5px #80C7FF, 12px 10px 15px 7px #E488FF, -10px 10px 15px 7px #FF616B, -10px -7px 27px 1px #8E5CFF, 5px 5px 15px 5px rgba(174,174,174,0); 
-        box-shadow: 5px 5px 15px 5px #FF8080, -9px 5px 15px 5px #FFE488, -7px -5px 15px 5px #8CFF85, 12px -5px 15px 5px #80C7FF, 
-        12px 10px 15px 7px #E488FF, -10px 10px 15px 7px #FF616B, -10px -7px 27px 1px #8E5CFF, 5px 5px 15px 5px rgba(174,174,174,0); */
-        width: 14rem;
-        /* width: 23%; */
-        height: 100%;
-        /* display: flex;
-        flex-direction: column; */
-        /* justify-content: center; */
-        text-align: center;
-        position: relative;
-        border-radius: 10%;
-    
-        
-      }
-
-      .display{       
-        color: white;        
-        font-size:8.5rem;
-        font-weight: 700;
-        margin: 0;
-        margin-top:1rem;
-    
-
-        color: #333333;
-text-shadow: 2px 2px 0px #FFFFFF, 5px 4px 0px rgba(0,0,0,0.15);
-color: #333333;
-
-    
-
-
-
-
-
-      }
-       #days{
-        font-size: 6.5rem;
-      } 
-      .Div-p{
-        width: 100%;
-        position: absolute;
-        bottom: 0;
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-        font-size: 1.56rem;
-        margin-top: 1rem;
-        margin: 0;
-
-        background-color: white;
-        font-family: 'omyu_pretty';
-        border-radius: 0 0 15px 15px;
-        
-      }
-    </style>
   </head>
   <body>
     <header>
       <h1>HAPPY BIRTHDAY🎉</h1>
-
-      
-
-      <h5>until your birthday:</h5>
+      <input type="date" id="date">
+      <button id="select">설정</button>
+      <h5></h5>
     </header>
 
    <main>
@@ -156,39 +48,79 @@ color: #333333;
       //3. setInterval로 1초마다 바뀌게. 
       //4. 새로고침해도 남아있도록.
       //5. 00:00:00:00되면 경과한 시간 띄우기 + 새로운 날짜를 선택하세요!(날짜선택..할 수 있도록)
-
-      //1. 시간 넣을 div 지정
+      
+      
+      
+      //1. 시간 넣을 div + 타이머 지정 시간 띄우는 h5 + date.button  지정
       const daysDiv = document.getElementById('days')
       const hoursDiv = document.getElementById('hours')
       const minutesDiv = document.getElementById('minutes')
       const secondsDiv = document.getElementById('seconds')
+      const selectDate = document.getElementById('date')
+      const select = document.getElementById('select')
+      const h5 = document.querySelector('h5')
       
-      setInterval(function(){
-      //2. date()이용해서 각각의 시간 넣기
+      
+
+      
       const now = new Date(); //Sat Jan 06 2024 05:56:37
-      const birthday = new Date(2024, 8, 4); //Wed Sep 04 2024 00:00:00 GMT+0900
+      // const birthday = new Date(2024, 0, 8); //Wed Sep 04 2024 00:00:00 GMT+0900 -> 사용자가 직접 선택할 수 있또록 변경
+     
+let start;
+
+      // type=date활용해서 시간 넣기
       
-        //생일시간에서 현재시간 빼기
+    
+      // selectDate.addEventListener('change',function(){
+        select.addEventListener('click',function(){
+          start =  setInterval(function(){
+         
+      const selectArr = []; //달력에서 선택한 값 넣어주는 배열
+      // console.log(selectDate.value) //['2024-01-18']
+      const selectValue = selectDate.value.split('-') // - 기준으로 문자열 나누기 ['2024','01','18']
+      // console.log(selectValue);
+      selectArr.push(selectValue); // 문자열 나눈 것 배열에 넣어주기
+      // console.log(selectArr)
+      //연,월,일 각각 지정
+      const selectYear = parseInt(selectValue[0])
+      console.log(selectYear) //2024
+      const selectMonth = parseInt(selectValue[1])-1 
+      console.log(selectMonth)//0
+      const selectDay = parseInt(selectValue[2]) 
+      console.log(selectDay)//19
+      
+     
+      
+          
+      //date 누르면 생일지정, + h5에 생일 날짜 띄우기
+      const birthday = new Date(selectYear,selectMonth,selectDay);
+      h5.textContent = `당신의 생일: ${birthday.getFullYear()}년 ${birthday.getMonth()+1}월 ${birthday.getDate()}일`
+      
+      //생일시간에서 현재시간 빼기
       const currentTime = new Date().getTime(); //1704488275434 
       const birthdayTime = birthday.getTime(); //1725375600000 
       const timeDifference = birthdayTime - currentTime; //20887269633
-
-        //밀리초로 반환된 것 각각 바꾸기
+    
+      //밀리초로 반환된 것 각각 바꾸기
       const days = Math.floor( timeDifference/(1000*3600*24) )
       const hours = Math.floor( timeDifference/(1000*3600) %24)
       const minutes = Math.floor( timeDifference/(1000*60) %60)
       const seconds = Math.floor( timeDifference/(1000) %60)
-        
-        //바꾼거 박스에 넣어주기
+      
+      //바꾼거 박스에 넣어주기
       daysDiv.textContent = days;
       hoursDiv.textContent = hours;
       minutesDiv.textContent = minutes;
       secondsDiv.textContent = seconds;
-
-      //3. setInterval로 1초마다 바뀌게.  //전체에 setInterval 씌움!
-      
-      //4. 시간지나면 지난 시간 띄우기
+   
+      //4. 00:00:00:00되면 경과한 시간 띄우기 + 색 변경// 새로운 날짜를 선택하세요!
        if(timeDifference < 0){
+
+        daysDiv.classList.add("timeover")
+        hoursDiv.classList.add("timeover")
+        minutesDiv.classList.add("timeover")
+        secondsDiv.classList.add("timeover")
+        
         const timeDifference = currentTime - birthdayTime;
         const days = Math.floor( timeDifference/(1000*3600*24) )
         const hours = Math.floor( timeDifference/(1000*3600) %24)
@@ -199,17 +131,22 @@ color: #333333;
         hoursDiv.textContent = hours;
         minutesDiv.textContent = minutes;
         secondsDiv.textContent = seconds;
-        
+
+        h5.textContent = `당신의 생일(${birthday.getFullYear()}년 ${birthday.getMonth()+1}월 ${birthday.getDate()}일)이 지났습니다!`
       }
+ 
     },1000)
-
-  
-
-   
-     
-      //5. 00:00:00:00되면 경과한 시간 띄우기 + 새로운 날짜를 선택하세요!
+  })  
+ 
+// }) 
+    
+      //3. setInterval로 1초마다 바뀌게
+ 
       
-     
+  
+     // 지정된 시간부터 타이머 시작하게
+     //settimeout -> 초.
+     //if문 사용해서! -> 그럼 if문이 안에 잇는 변수를 써야햐는디;;;-> 타이머 만드는 함수를 선언? Gooootddd
     </script>
   </body>
 </html>
