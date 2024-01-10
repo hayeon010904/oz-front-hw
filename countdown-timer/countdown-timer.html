@@ -1,22 +1,25 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="./images/oz_icon.png" />
-    <link href="countdown-timer.css" rel="stylesheet">
+    <!-- <link href="countdown-timer.css" rel="stylesheet"> -->
+    <link href="countdown-timer copy.css" rel="stylesheet">
     <title>오즈코딩스쿨 | 카운트다운 타이머</title>
   </head>
   <body>
     <header>
       <h1>HAPPY BIRTHDAY🎉</h1>
+      <div id="select_box">
       <input type="date" id="date">
       <button id="select">설정</button>
-      <h5></h5>
-    </header>
+    </div>
 
+    </header>
+    <h5>생일을 선택해주세요!</h5>
    <main>
+   
     <div id="container">      
       <div id="daysDiv" class="timerDiv">
         <p id="days" class="display"></p>
@@ -35,12 +38,15 @@
         <p class="Div-p">Seconds</p>
     </div>    
     </div>
-  </main>
+
 
     <div class="footer">
       © 2023. <a href="https://ozcodingschool.com/" target="_blank">ozcodingschool</a>. All rights
       reserved. Developed by <a href="#">hayeom</a>.
     </div>
+  </main>
+
+  
 
     <script>
       //1. 시간 넣을 div 지정
@@ -67,14 +73,12 @@
       // const birthday = new Date(2024, 0, 8); //Wed Sep 04 2024 00:00:00 GMT+0900 -> 사용자가 직접 선택할 수 있또록 변경
      
 let start;
-
-      // type=date활용해서 시간 넣기
-      
+ // selectDate.addEventListener('change',function(){
+    select.addEventListener('click',function(){
+      start =  setInterval(function(){
     
-      // selectDate.addEventListener('change',function(){
-        select.addEventListener('click',function(){
-          start =  setInterval(function(){
-         
+    
+      // type=date활용해서 시간 넣기
       const selectArr = []; //달력에서 선택한 값 넣어주는 배열
       // console.log(selectDate.value) //['2024-01-18']
       const selectValue = selectDate.value.split('-') // - 기준으로 문자열 나누기 ['2024','01','18']
@@ -88,31 +92,28 @@ let start;
       console.log(selectMonth)//0
       const selectDay = parseInt(selectValue[2]) 
       console.log(selectDay)//19
-      
-     
-      
           
       //date 누르면 생일지정, + h5에 생일 날짜 띄우기
       const birthday = new Date(selectYear,selectMonth,selectDay);
-      h5.textContent = `당신의 생일: ${birthday.getFullYear()}년 ${birthday.getMonth()+1}월 ${birthday.getDate()}일`
+      h5.textContent = `당신의 생일은 ${birthday.getFullYear()}년 ${birthday.getMonth()+1}월 ${birthday.getDate()}일 입니다`
       
       //생일시간에서 현재시간 빼기
       const currentTime = new Date().getTime(); //1704488275434 
       const birthdayTime = birthday.getTime(); //1725375600000 
       const timeDifference = birthdayTime - currentTime; //20887269633
-    
+     
       //밀리초로 반환된 것 각각 바꾸기
       const days = Math.floor( timeDifference/(1000*3600*24) )
       const hours = Math.floor( timeDifference/(1000*3600) %24)
       const minutes = Math.floor( timeDifference/(1000*60) %60)
       const seconds = Math.floor( timeDifference/(1000) %60)
-      
+    
       //바꾼거 박스에 넣어주기
       daysDiv.textContent = days;
       hoursDiv.textContent = hours;
       minutesDiv.textContent = minutes;
       secondsDiv.textContent = seconds;
-   
+  
       //4. 00:00:00:00되면 경과한 시간 띄우기 + 색 변경// 새로운 날짜를 선택하세요!
        if(timeDifference < 0){
 
@@ -132,12 +133,13 @@ let start;
         minutesDiv.textContent = minutes;
         secondsDiv.textContent = seconds;
 
-        h5.textContent = `당신의 생일(${birthday.getFullYear()}년 ${birthday.getMonth()+1}월 ${birthday.getDate()}일)이 지났습니다!`
+        h5.textContent = `이미 지난 생일입니다. 새로운 생일을 등록하세요!`
       }
- 
-    },1000)
+      
+    
+    
   })  
- 
+},1000)
 // }) 
     
       //3. setInterval로 1초마다 바뀌게
