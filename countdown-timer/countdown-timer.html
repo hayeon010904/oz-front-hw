@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="./images/oz_icon.png" />
 
-    <link href="countdown-timer copy.css" rel="stylesheet" />
-    <title>오즈코딩스쿨 | 카운트다운 타이머</title>
+    <link href="countdown-timer.css" rel="stylesheet" />
+    <title>오즈코딩스쿨 (이하연) | 카운트다운 타이머</title>
   </head>
   <body>
     <header>
@@ -38,7 +38,7 @@
       </div>
 
       <div class="footer">
-        © 2023. <a href="https://ozcodingschool.com/" target="_blank">ozcodingschool</a>. All rights
+        © 2024. <a href="https://ozcodingschool.com/" target="_blank">ozcodingschool</a>. All rights
         reserved. Developed by <a href="#">hayeom</a>.
       </div>
     </main>
@@ -64,83 +64,97 @@
 
       let start;
       // selectDate.addEventListener('change',function(){
-      select.addEventListener(
-        "click",
-        function () {
-          if (selectDate.value === "") {
-            alert("생일을 선택해주세요");
-            return;
-          }
-          clearInterval(start);
-          const selectValue = selectDate.value.split("-");
-          start = setInterval(function () {
-            // type=date활용해서 시간 넣기
-            const selectArr = []; //달력에서 선택한 값 넣어주는 배열
-            // console.log(selectDate.value) //['2024-01-18']
-            // - 기준으로 문자열 나누기 ['2024','01','18']
-            // console.log(selectValue);
-            selectArr.push(selectValue); // 문자열 나눈 것 배열에 넣어주기
-            // console.log(selectArr)
-            //연,월,일 각각 지정
-            const selectYear = parseInt(selectValue[0]);
-            console.log(selectYear); //2024
-            const selectMonth = parseInt(selectValue[1]) - 1;
-            console.log(selectMonth); //0
-            const selectDay = parseInt(selectValue[2]);
-            console.log(selectDay); //19
+      select.addEventListener("click", function () {
+        if (selectDate.value === "") {
+          alert("생일을 선택해주세요");
+          return;
+        }
+        clearInterval(start);
+        const selectValue = selectDate.value.split("-");
+        start = setInterval(function () {
+          // type=date활용해서 시간 넣기
+          const selectArr = []; //달력에서 선택한 값 넣어주는 배열
+          // console.log(selectDate.value) //['2024-01-18']
+          // - 기준으로 문자열 나누기 ['2024','01','18']
+          // console.log(selectValue);
+          selectArr.push(selectValue); // 문자열 나눈 것 배열에 넣어주기
+          // console.log(selectArr)
+          //연,월,일 각각 지정
+          const selectYear = parseInt(selectValue[0]);
+          console.log(selectYear); //2024
+          const selectMonth = parseInt(selectValue[1]) - 1;
+          console.log(selectMonth); //0
+          const selectDay = parseInt(selectValue[2]);
+          console.log(selectDay); //19
 
-            //date 누르면 생일지정, + h5에 생일 날짜 띄우기
-            const birthday = new Date(selectYear, selectMonth, selectDay);
-            h5.textContent = `당신의 생일은 ${birthday.getFullYear()}년 ${
-              birthday.getMonth() + 1
-            }월 ${birthday.getDate()}일 입니다`;
+          //date 누르면 생일지정, + h5에 생일 날짜 띄우기
+          const birthday = new Date(selectYear, selectMonth, selectDay);
+          h5.textContent = `당신의 생일은 ${birthday.getFullYear()}년 ${
+            birthday.getMonth() + 1
+          }월 ${birthday.getDate()}일 입니다`;
 
-            //생일시간에서 현재시간 빼기
-            const currentTime = new Date().getTime(); //1704488275434
-            const birthdayTime = birthday.getTime(); //1725375600000
-            const timeDifference = birthdayTime - currentTime; //20887269633
+          //생일시간에서 현재시간 빼기
+          const currentTime = new Date().getTime(); //1704488275434
+          const birthdayTime = birthday.getTime(); //1725375600000
+          const timeDifference = birthdayTime - currentTime; //20887269633
 
-            //밀리초로 반환된 것 각각 바꾸기
+          //밀리초로 반환된 것 각각 바꾸기
+          const days = Math.floor(timeDifference / (1000 * 3600 * 24));
+          const hours = Math.floor((timeDifference / (1000 * 3600)) % 24);
+          const minutes = Math.floor((timeDifference / (1000 * 60)) % 60);
+          const seconds = Math.floor((timeDifference / 1000) % 60);
+
+          //바꾼거 박스에 넣어주기
+          daysDiv.textContent = days;
+          hoursDiv.textContent = hours;
+          minutesDiv.textContent = minutes;
+          secondsDiv.textContent = seconds;
+
+          //4. 00:00:00:00되면 경과한 시간 띄우기 + 색 변경// 새로운 날짜를 선택하세요!
+          if (timeDifference < 0) {
+            daysDiv.classList.add("timeover");
+            hoursDiv.classList.add("timeover");
+            minutesDiv.classList.add("timeover");
+            secondsDiv.classList.add("timeover");
+
+            const timeDifference = currentTime - birthdayTime;
             const days = Math.floor(timeDifference / (1000 * 3600 * 24));
             const hours = Math.floor((timeDifference / (1000 * 3600)) % 24);
             const minutes = Math.floor((timeDifference / (1000 * 60)) % 60);
             const seconds = Math.floor((timeDifference / 1000) % 60);
 
-            //바꾼거 박스에 넣어주기
             daysDiv.textContent = days;
             hoursDiv.textContent = hours;
             minutesDiv.textContent = minutes;
             secondsDiv.textContent = seconds;
 
-            //4. 00:00:00:00되면 경과한 시간 띄우기 + 색 변경// 새로운 날짜를 선택하세요!
-            if (timeDifference < 0) {
-              daysDiv.classList.add("timeover");
-              hoursDiv.classList.add("timeover");
-              minutesDiv.classList.add("timeover");
-              secondsDiv.classList.add("timeover");
+            h5.textContent = `이미 지난 생일입니다. 새로운 생일을 등록하세요!`;
 
-              const timeDifference = currentTime - birthdayTime;
-              const days = Math.floor(timeDifference / (1000 * 3600 * 24));
-              const hours = Math.floor((timeDifference / (1000 * 3600)) % 24);
-              const minutes = Math.floor((timeDifference / (1000 * 60)) % 60);
-              const seconds = Math.floor((timeDifference / 1000) % 60);
-
-              daysDiv.textContent = days;
-              hoursDiv.textContent = hours;
-              minutesDiv.textContent = minutes;
-              secondsDiv.textContent = seconds;
-
-              h5.textContent = `이미 지난 생일입니다. 새로운 생일을 등록하세요!`;
-            } else {
-              daysDiv.classList.remove("timeover");
-              hoursDiv.classList.remove("timeover");
-              minutesDiv.classList.remove("timeover");
-              secondsDiv.classList.remove("timeover");
+            if (secondsDiv.textContent >= 50) {
+              // Add the 'changed' class to apply the effect
+              secondsDiv.classList.add("changed_timeover");
+              // Remove the class after the animation completes (0.5s in this example)
+              setTimeout(() => {
+                secondsDiv.classList.remove("changed_timeover");
+              }, 500);
             }
-          });
-        },
-        1000,
-      );
+          } else {
+            daysDiv.classList.remove("timeover");
+            hoursDiv.classList.remove("timeover");
+            minutesDiv.classList.remove("timeover");
+            secondsDiv.classList.remove("timeover");
+
+            if (secondsDiv.textContent <= 10) {
+              // Add the 'changed' class to apply the effect
+              secondsDiv.classList.add("changed");
+              // Remove the class after the animation completes (0.5s in this example)
+              setTimeout(() => {
+                secondsDiv.classList.remove("changed");
+              }, 500);
+            }
+          }
+        }, 1000);
+      });
 
       //3. setInterval로 1초마다 바뀌게
 
