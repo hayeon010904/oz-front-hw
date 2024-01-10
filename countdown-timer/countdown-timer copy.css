@@ -1,235 +1,233 @@
-
 @font-face {
-    font-family: 'omyu_pretty';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;}
-   
-      .footer {
-        font-size: 12px;
-        text-align: center;
-       
-        position: fixed;
-        bottom: 5rem;
-      }
-      .footer a {
-        color: hsl(282, 100%, 21%);
-        text-decoration: none;
-      }
-      html{
-        width: 100%;
-        
-        height: 100%;
-      }
-      body{
-        width: 100%;
-        background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
-        height: 100%;
-      
-      }
-      header{
-        width: 60rem;
-        height: 5rem;
-        display: flex;
-        justify-content: space-around;
-        margin: auto;
-        margin-bottom: 5rem;
+  font-family: "omyu_pretty";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
 
-      }
-      main{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-   
-      }
-      #container{
-        margin-top: 2rem;
-        /* border: 1px solid black; */
-        width: 54rem;
-        height: 15rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;   
-        transition:width 0.5s ease-out;
-      
-       
-      }
-      #select_box{
-        width: 230px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+.footer {
+  font-size: 12px;
+  text-align: center;
 
+  position: fixed;
+  bottom: 5rem;
+}
 
-      }
-      #date{
-        width: 150px;
-        height: 30px;
-        text-align: center;
-        background-color:rgba(251, 231, 207, 0.679);
-        border: none;
-        font-size: 1.1rem;
-        font-family: 'omyu_pretty';
-      }
-      
-      #select{
-        width: 60px;
-        height: 30px;
-        border: none;
-        background-color: rgb(254, 225, 190);
-        font-size: 1.1rem;
-        font-family: 'omyu_pretty';
-        border-radius: 30px;
-      }
-      h5{
-        font-size: 1.2rem;
-        width: fit-content;
-        margin: auto;
-        color:  #454545;
-        background-color: #ffffffef;
-        border-radius: 5px;
-        padding: 0.3rem;
-        text-align: center;
-       
-      }
-      .timerDiv{
-        background-image: linear-gradient(135deg, #fdfcfb 0%, rgb(249, 224, 224) 100%);
-        box-shadow: 8px 12px 5px -8px rgba(159, 159, 159, 0.583), 12px 1px 4px -9px rgba(159, 159, 159, 0.703);
-        width: 13rem;
-        height: 13rem;
-        text-align: center;
-        position: relative;
-        border-radius: 10%;
-        
-      
-      }
-      .display{       
-        /* width: 230px; */
-        height: 163px;
-        text-align: center;
-        color: white;        
-        font-size:8.25rem;
-        font-weight: 800;
-        margin: 0;
-        margin-top:1rem;
-        color: rgba(19, 19, 19, 0.689);
-        text-shadow: 2px 3px 0px rgba(167, 167, 167, 0.413);
-      }
-   
-      .Div-p{
-        width: 100%;
-        position: absolute;
-        bottom: -0.4rem;
-        padding-top: 0.2rem;
-        padding-bottom: 0.2em;
-        font-size: 1.56rem;
-        background-color: white;
-        font-family: 'omyu_pretty';
-        
-      }
-      .timeover{
-        color:rgba(246, 43, 43, 0.858);
-    }
- @media screen and (max-width:980px) {
+.footer a {
+  color: hsl(282, 100%, 21%);
+  text-decoration: none;
+}
 
-  header{
+html {
+  width: 100%;
+
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
+  height: 100%;
+}
+
+header {
+  width: 60rem;
+  height: 5rem;
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+  margin-bottom: 5rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#container {
+  margin-top: 2rem;
+  /* border: 1px solid black; */
+  width: 54rem;
+  height: 15rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: width 0.5s ease-out;
+}
+
+#select_box {
+  width: 230px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#date {
+  width: 150px;
+  height: 30px;
+  text-align: center;
+  background-color: rgba(251, 231, 207, 0.679);
+  border: none;
+  font-size: 1.1rem;
+  font-family: "omyu_pretty";
+}
+
+#select {
+  width: 60px;
+  height: 30px;
+  border: none;
+  background-color: rgb(254, 225, 190);
+  font-size: 1.1rem;
+  font-family: "omyu_pretty";
+  border-radius: 30px;
+}
+
+h5 {
+  font-size: 1.2rem;
+  width: fit-content;
+  margin: auto;
+  color: #454545;
+  background-color: #ffffffef;
+  border-radius: 5px;
+  padding: 0.3rem;
+  text-align: center;
+}
+
+.timerDiv {
+  background-image: linear-gradient(135deg, #fdfcfb 0%, rgb(249, 224, 224) 100%);
+  box-shadow: 8px 12px 5px -8px rgba(159, 159, 159, 0.583),
+    12px 1px 4px -9px rgba(159, 159, 159, 0.703);
+  width: 13rem;
+  height: 13rem;
+  text-align: center;
+  position: relative;
+  border-radius: 10%;
+}
+
+.display {
+  /* width: 230px; */
+  height: 163px;
+  text-align: center;
+  color: white;
+  font-size: 8.25rem;
+  font-weight: 800;
+  margin: 0;
+  margin-top: 1rem;
+  color: rgba(19, 19, 19, 0.689);
+  text-shadow: 2px 3px 0px rgba(167, 167, 167, 0.413);
+}
+
+.Div-p {
+  width: 100%;
+  position: absolute;
+  bottom: -0.4rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2em;
+  font-size: 1.56rem;
+  background-color: white;
+  font-family: "omyu_pretty";
+}
+
+.timeover {
+  color: rgba(246, 43, 43, 0.858);
+}
+
+@media screen and (max-width: 980px) {
+  header {
     width: 55rem;
     margin-bottom: 4rem;
-    }
+  }
 
-  #container{
+  #container {
     margin-top: 3rem;
-        width: 45rem;
-        transition:width 0.5s ease-in;
-       
-      
- }
- .timerDiv{
-  width: 10.8rem;
-  height: 10.8rem;
+    width: 45rem;
+    transition: width 0.5s ease-in;
+  }
 
+  .timerDiv {
+    width: 10.8rem;
+    height: 10.8rem;
+  }
 
+  .display {
+    font-size: 6.5rem;
+  }
+
+  .Div-p {
+    position: absolute;
+    bottom: -0.1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    font-size: 1.2rem;
+  }
 }
-.display{      
-        font-size:6.5rem
-      }
 
-.Div-p{
-        position: absolute;
-        bottom: -0.1rem;
-        padding-top: 0.3rem;
-        padding-bottom: 0.3rem;
-        font-size: 1.2rem;
-      }
-    }
+@media screen and (max-width: 825px) {
+  header {
+    width: 30rem;
+    margin-bottom: 3rem;
+  }
 
+  h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: auto;
+  }
 
-    @media screen and (max-width:825px) {
-      header{
-        width:30rem;
-        margin-bottom: 3rem;
-        }
+  #date {
+    width: 100px;
+    font-size: 1rem;
+  }
 
+  #select_box {
+    justify-content: space-evenly;
+  }
 
-      h1{
-        font-size: 1.5rem;
-        text-align: center;
-        margin: auto;
-      }
-      #date{
-        
-        width: 100px;
-        font-size: 1rem;
-      }
-     #select_box{
-      justify-content: space-evenly;
-     }
-      #select{
-        width: 60px;
-        height: 30px;
-        border: none;
-        background-color: rgb(254, 225, 190);
-        font-size: 1.1rem;
-        font-family: 'omyu_pretty';
-        border-radius: 30px;
-      }
-  #container{
-       
-        width: 29rem;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        margin-top: 2rem;
-        transition:width 0.5s ease-in;
-   
-  
+  #select {
+    width: 60px;
+    height: 30px;
+    border: none;
+    background-color: rgb(254, 225, 190);
+    font-size: 1.1rem;
+    font-family: "omyu_pretty";
+    border-radius: 30px;
+  }
+
+  #container {
+    width: 29rem;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+    transition: width 0.5s ease-in;
+  }
+
+  .timerDiv {
+    width: 13rem;
+    height: 11rem;
+
+    margin-bottom: 1.5rem;
+  }
+
+  .display {
+    font-size: 6.5rem;
+  }
+
+  .Div-p {
+    position: absolute;
+    bottom: 0rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    font-size: 1.2rem;
+  }
 }
- 
- .timerDiv{
-  width: 13rem;
-  height:11rem;
-  
-  
-  margin-bottom: 1.5rem;
-  
-}
-.display{      
-        font-size:6.5rem
-        
-      }
 
-.Div-p{
-        position: absolute;
-        bottom: 0rem;
-        padding-top: 0.3rem;
-        padding-bottom: 0.3rem;
-        font-size: 1.2rem;
-      }
-    }
-    .footer {
-      font-size: 12px;
-      text-align: center;
-     
-      position: fixed;
-      bottom: 1.5rem;
-    }
+.footer {
+  font-size: 12px;
+  text-align: center;
+
+  position: fixed;
+  bottom: 1.5rem;
+}

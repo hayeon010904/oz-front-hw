@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./images/oz_icon.png" />
-    <!-- <link href="countdown-timer.css" rel="stylesheet"> -->
-    <link href="countdown-timer copy.css" rel="stylesheet">
+    <link rel="icon" href="./images/oz_icon.png" /> 
+
+<link href="countdown-timer copy.css" rel="stylesheet">
     <title>오즈코딩스쿨 | 카운트다운 타이머</title>
   </head>
   <body>
@@ -44,9 +44,9 @@
       © 2023. <a href="https://ozcodingschool.com/" target="_blank">ozcodingschool</a>. All rights
       reserved. Developed by <a href="#">hayeom</a>.
     </div>
-  </main>
+  </main> 
 
-  
+
 
     <script>
       //1. 시간 넣을 div 지정
@@ -55,8 +55,7 @@
       //4. 새로고침해도 남아있도록.
       //5. 00:00:00:00되면 경과한 시간 띄우기 + 새로운 날짜를 선택하세요!(날짜선택..할 수 있도록)
       
-      
-      
+
       //1. 시간 넣을 div + 타이머 지정 시간 띄우는 h5 + date.button  지정
       const daysDiv = document.getElementById('days')
       const hoursDiv = document.getElementById('hours')
@@ -72,10 +71,14 @@
       const now = new Date(); //Sat Jan 06 2024 05:56:37
       // const birthday = new Date(2024, 0, 8); //Wed Sep 04 2024 00:00:00 GMT+0900 -> 사용자가 직접 선택할 수 있또록 변경
      
-let start;
+  let start;
  // selectDate.addEventListener('change',function(){
-    select.addEventListener('click',function(){
-      start =  setInterval(function(){
+   
+  select.addEventListener('click',function(){
+    if(selectDate === ''){
+      alert('생일을 선택해주세요')
+    }else{
+      start = setInterval(function () {
     
     
       // type=date활용해서 시간 넣기
@@ -140,7 +143,7 @@ let start;
     
   })  
 },1000)
-// }) 
+ 
     
       //3. setInterval로 1초마다 바뀌게
  
@@ -151,4 +154,7 @@ let start;
      //if문 사용해서! -> 그럼 if문이 안에 잇는 변수를 써야햐는디;;;-> 타이머 만드는 함수를 선언? Gooootddd
     </script>
   </body>
-</html>
+</html> 
+
+
+
