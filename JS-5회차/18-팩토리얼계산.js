@@ -24,8 +24,10 @@
 function question(n) {
     // 여기에서 코드 작성해주세요!
 
-    // 1. 배열을 만든다.
-    // 2. 배열에 있는 요소들을 모두 곱한다. => n 이면 n! 2 => 1,2 => foreach
+    // 1-1. 배열을 만든다.
+    // 1-2. 배열에 있는 요소들을 모두 곱한다. => n 이면 n! 2 => 1,2 => foreach 
+
+    // 2.New! => 재귀함수 활용
 
     let result=1;
 
@@ -40,7 +42,18 @@ function question(n) {
        result *= n
         
     })
+    
+    // 재귀함수활용!!
+    // function factorial(n){
+    //     if(n<=1) return 1;
+    //     return n * factorial(n-1);
+    // }
+    // let result = factorial(n)
+    // return result;
 
+
+
+}
 
     // let lastindex = arr[arr.length-1] 
     // for(let j = 0; j<=lastindex; j++ ){//1부터 배열의 마지막숫자까지 반복, 곱하면서.ㅓ
@@ -52,12 +65,6 @@ function question(n) {
 //     for(let j = 0; j<=lastindex; j++ ){//1부터 배열의 마지막숫자까지 반복, 곱하면서.ㅓ
 //       
 //         }
-    return result;
-
-
-
-}
-
 // 여기는 결과값 함수이므로 신경쓰지 않으셔도 됩니다!
 Test(question, [[5], [0], [1], [2], [3], [4], [6]], [120, 1, 1, 2, 6, 24, 720]);
 
